@@ -23,7 +23,7 @@ const MinimalPictureCard = ({ imageUrl, imageAlt, title, description }) => {
     overflow-hidden // Important for rounded corners on the image
     border 
     transition-all duration-300 
-    max-w-sm 
+   
     mx-auto
     ${
       isHovered

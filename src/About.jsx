@@ -1,4 +1,5 @@
 import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 
 export default function About() {
   return (
@@ -23,6 +24,9 @@ export default function About() {
           Your guide to holistic health and wellness.
         </p>
       </div>
+      <footer className="relative z-10">
+        <Footer />
+      </footer>
     </div>
   );
 }

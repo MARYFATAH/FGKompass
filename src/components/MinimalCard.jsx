@@ -8,7 +8,7 @@ const MinimalCard = ({ title, description, icon: Icon }) => {
       className="
       bg-white 
       p-6 md:p-8 
-      rounded-xl 
+      rounded-3xl
       shadow-sm 
       border border-gray-200 
       hover:shadow-md 
@@ -16,6 +16,7 @@ const MinimalCard = ({ title, description, icon: Icon }) => {
       transition duration-300 
       max-w-sm 
       mx-auto
+      
     "
     >
       {/* Accent/Icon Section */}
@@ -30,6 +31,7 @@ const MinimalCard = ({ title, description, icon: Icon }) => {
             border-rose-400/50 
             rounded-lg 
             flex-shrink-0
+            text-center
           "
           >
             {/* The icon size is set using Tailwind classes for consistency */}
@@ -48,7 +50,6 @@ const MinimalCard = ({ title, description, icon: Icon }) => {
           {title}
         </h3>
       </div>
-
       {/* Description: Secondary light gray for minimal look */}
       <p
         className="
@@ -58,7 +59,6 @@ const MinimalCard = ({ title, description, icon: Icon }) => {
       >
         {description}
       </p>
-
       {/* Optional: Rose 400 link/button for action */}
       <div className="mt-4">
         <a

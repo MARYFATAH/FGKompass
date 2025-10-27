@@ -1,4 +1,5 @@
 import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 export default function Contact() {
   return (
     <div className="relative min-h-screen w-full font-montserrat flex flex-col">
@@ -22,6 +23,9 @@ export default function Contact() {
           Your guide to holistic health and wellness.
         </p>
       </div>
+      <footer className="relative z-10">
+        <Footer />
+      </footer>
     </div>
   );
 }
