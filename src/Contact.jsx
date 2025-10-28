@@ -3,7 +3,7 @@ import Footer from "./components/Footer";
 
 export default function Contact() {
   return (
-    <div className="relative min-h-screen w-full font-montserrat flex flex-col">
+    <div className="relative min-h-screen w-full font-montserrat flex flex-col border border-gray-300 rounded-lg overflow-hidden">
       {/* 🌸 Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-rose-200 via-rose-200 to-rose-300"></div>
       <div className="absolute inset-0 bg-black/10"></div>
