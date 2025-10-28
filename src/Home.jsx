@@ -19,7 +19,7 @@ export default function Home() {
       </header>
 
       {/* 🩵 Main Content */}
-      <main className="relative z-10 flex-grow flex flex-col items-center text-center px-4 py-12 space-y-12">
+      <main className="relative  flex-grow flex flex-col items-center text-center px-4 py-12 space-y-12">
         {/* 🌿 Hero Section */}
         <PictureCard
           className="w-4/5 max-w-6xl mx-auto"
@@ -69,6 +69,36 @@ export default function Home() {
             More on Topic
           </h2>
           <MoreOnTopic />
+        </section>
+
+        {/* 💡 Featured Minimal Cards Section */}
+        <section className="w-full max-w-5xl text-left">
+          <h2 className="text-lg font-semibold  text-white drop-shadow-100 mb-6 drop-shadow-md border-b border-rose-100 pb-2">
+            Health Conditions
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+            <MinimalCard
+              title="Breast Cancer"
+              description="Information and support for breast cancer patients."
+            />
+            <MinimalCard
+              title="Diabetes"
+              description="Managing diabetes through lifestyle and medication."
+            />
+            <MinimalCard
+              title="Heart Disease"
+              description="Prevention and treatment of heart-related conditions."
+            />
+            <MinimalCard
+              title="Andrometiosis"
+              description="Understanding and managing endometriosis."
+            />
+            <MinimalCard
+              title="Pregnancy"
+              description="Resources for a healthy pregnancy journey."
+            />
+          </div>
         </section>
 
         {/* 🔗 Call-to-Action Button */}

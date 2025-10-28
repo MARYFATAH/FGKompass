@@ -1,5 +1,3 @@
-import React from "react";
-
 const categories = [
   { name: "Nutrition", icon: "🥑" },
   { name: "Sleep", icon: "⏰" },

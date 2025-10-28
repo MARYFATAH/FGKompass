@@ -10,12 +10,12 @@ export default function Contact() {
       <div className="absolute inset-0 bg-black/10"></div>
 
       {/* ✅ Navbar */}
-      <div className="relative z-10">
+      <div className="relative">
         <Nav />
       </div>
 
       {/* ✅ Hero section */}
-      <div className="relative z-10 flex flex-col items-center justify-center flex-grow text-center px-4">
+      <div className="relative  flex flex-col items-center justify-center flex-grow text-center px-4">
         <h1 className="text-5xl font-bold mb-4 text-white drop-shadow-lg">
           Contact Page
         </h1>
