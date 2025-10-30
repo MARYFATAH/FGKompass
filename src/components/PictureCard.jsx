@@ -20,8 +20,9 @@ const MinimalPictureCard = ({ imageUrl, imageAlt, title, description }) => {
     bg-white 
     rounded-xl 
     w-full
-    overflow-hidden // Important for rounded corners on the image
-    border 
+    overflow-hidden 
+    border-gray-200 
+    border
     transition-all duration-300 
    
     mx-auto

@@ -9,9 +9,6 @@ export default function About() {
       <div className="absolute inset-0 bg-black/10"></div>
 
       {/* 🌸 Navbar */}
-      <div className="relative z-20">
-        <Nav />
-      </div>
 
       {/* 🌸 Hero Section */}
       <main className="relative z-10 flex-grow flex flex-col items-center justify-center px-6 py-16 text-center">
@@ -63,9 +60,6 @@ export default function About() {
       </main>
 
       {/* 🌸 Footer */}
-      <footer className="relative z-20 mt-auto">
-        <Footer />
-      </footer>
     </div>
   );
 }

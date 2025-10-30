@@ -9,9 +9,6 @@ export default function Contact() {
       <div className="absolute inset-0 bg-black/10"></div>
 
       {/* 🌸 Navbar */}
-      <div className="relative z-20">
-        <Nav />
-      </div>
 
       {/* 🌸 Hero / Contact Form Section */}
       <main className="relative z-10 flex-grow flex flex-col items-center justify-center px-6 py-12">
@@ -73,9 +70,6 @@ export default function Contact() {
       </main>
 
       {/* 🌸 Footer */}
-      <footer className="relative z-20 mt-auto">
-        <Footer />
-      </footer>
     </div>
   );
 }

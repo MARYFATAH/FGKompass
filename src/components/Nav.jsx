@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Nav() {
   const location = useLocation();
@@ -8,7 +8,7 @@ export default function Nav() {
     "inline-flex items-center px-1 pt-1 text-sm font-medium transition duration-150 ease-in-out";
 
   return (
-    <nav className="bg-white shadow-md relative z-[9999]">
+    <nav className="bg-white shadow-md relative z-[9999] border border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -71,7 +71,7 @@ export default function Nav() {
                 >
                   Wellness
                   <svg
-                    className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180"
+                    className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180 group-hover:text-rose-600"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
@@ -99,17 +99,23 @@ export default function Nav() {
                   <li className="cursor-pointer text-slate-800 flex w-full text-sm items-center rounded-md p-3 hover:bg-slate-100">
                     <Link to="/wellness/nutrition">Nutrition</Link>
                   </li>
+                  <li className="cursor-pointer text-slate-800 flex w-full text-sm items-center rounded-md p-3 hover:bg-slate-100">
+                    <Link to="/wellness/sleep">Sleep</Link>
+                  </li>
+                  <li className="cursor-pointer text-slate-800 flex w-full text-sm items-center rounded-md p-3 hover:bg-slate-100">
+                    <Link to="/wellness/recipe">Recipe</Link>
+                  </li>
                 </ul>
               </div>
 
               {/* Health Condition Dropdown */}
               <div className="relative group z-[9999]">
                 <button
-                  className={`${baseLinkClasses} text-gray-600 hover:text-black flex items-center`}
+                  className={`${baseLinkClasses} text-gray-600 hover:text-black flex items-center `}
                 >
                   Health Condition
                   <svg
-                    className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180"
+                    className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180 group-hover:text-rose-600"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
@@ -126,16 +132,40 @@ export default function Nav() {
                 {/* Dropdown Menu */}
                 <ul
                   role="menu"
-                  className="absolute left-0 mt-2 min-w-[180px] rounded-lg border border-slate-200 bg-white p-1.5 shadow-lg 
+                  className="absolute left-0 mt-2 min-w-[400px] grid grid-cols-2 rounded-lg border border-slate-200 bg-white p-1.5 shadow-lg 
                              opacity-0 invisible group-hover:opacity-100 group-hover:visible 
                              transition-all duration-200 ease-in-out 
                              z-[9999]"
                 >
-                  <li className="cursor-pointer text-slate-800 flex w-full text-sm items-center rounded-md p-3 hover:bg-slate-100">
-                    <Link to="/health/heart">Heart Health</Link>
+                  <li className="cursor-pointer text-slate-800 flex  w-full text-sm items-center rounded-md p-3 hover:bg-slate-100">
+                    <Link to="/health/heart-disease">Heart Disease</Link>
                   </li>
                   <li className="cursor-pointer text-slate-800 flex w-full text-sm items-center rounded-md p-3 hover:bg-slate-100">
-                    <Link to="/health/mental">Mental Health</Link>
+                    <Link to="/health/breast-cancer">Breast Cancer</Link>
+                  </li>
+                  <li className="cursor-pointer text-slate-800 flex w-full text-sm items-center rounded-md p-3 hover:bg-slate-100">
+                    <Link to="/health/diabetes">Diabetes</Link>
+                  </li>
+                  <li className="cursor-pointer text-slate-800 flex w-full text-sm items-center rounded-md p-3 hover:bg-slate-100">
+                    <Link to="/health/osteoporosis">Osteoporosis</Link>
+                  </li>
+                  <li className="cursor-pointer text-slate-800 flex w-full text-sm items-center rounded-md p-3 hover:bg-slate-100">
+                    <Link to="/health/endometriosis">Endometriosis</Link>
+                  </li>
+                  <li className="cursor-pointer text-slate-800 flex w-full text-sm items-center rounded-md p-3 hover:bg-slate-100">
+                    <Link to="/health/maternal-health"> Maternal Health</Link>
+                  </li>
+                  <li className="cursor-pointer text-slate-800 flex w-full text-sm items-center rounded-md p-3 hover:bg-slate-100">
+                    <Link to="/health/mental-health">Mental Health</Link>
+                  </li>
+                  <li className="cursor-pointer text-slate-800 flex w-full text-sm items-center rounded-md p-3 hover:bg-slate-100">
+                    <Link to="/health/menopause">Menopause</Link>
+                  </li>
+                  <li className="cursor-pointer text-slate-800 flex w-full text-sm items-center rounded-md p-3 hover:bg-slate-100">
+                    <Link to="/health/autoimmune-diseases">
+                      {" "}
+                      Autoimmune Diseases
+                    </Link>
                   </li>
                 </ul>
               </div>

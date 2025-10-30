@@ -8,15 +8,12 @@ import MoreOnTopic from "./components/MoreOnTopic";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen font-montserrat flex flex-col border border-gray-300 rounded-lg overflow-hidden">
+    <div className="relative min-h-screen font-montserrat flex flex-col border border-gray-300  overflow-hidden">
       {/* 🌸 Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-rose-200 via-rose-300 to-rose-500"></div>
       <div className="absolute inset-0 bg-black/10"></div>
 
       {/* 🧭 Navbar */}
-      <header className="relative z-10">
-        <Nav />
-      </header>
 
       {/* 🩵 Main Content */}
       <main className="relative  flex-grow flex flex-col items-center text-center px-4 py-12 space-y-12">
@@ -113,9 +110,6 @@ export default function Home() {
       </main>
 
       {/* 🦶 Footer */}
-      <footer className="relative z-10 mt-auto">
-        <Footer />
-      </footer>
     </div>
   );
 }
