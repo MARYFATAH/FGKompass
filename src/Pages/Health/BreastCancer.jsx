@@ -1,31 +1,71 @@
 export default function BreastCancer() {
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md mt-10">
-      <h1 className="text-3xl font-bold text-gray-800 mb-4">Breast Cancer</h1>
-      <p className="text-gray-600 mb-6">
-        Breast cancer is a type of cancer that develops from breast tissue. It
-        is one of the most common cancers affecting women worldwide, but it can
-        also occur in men.
-      </p>
-      <p className="text-gray-600 mb-6">
-        Early detection and treatment are key to managing breast cancer
-        effectively. Here are some important facts about breast cancer:
-      </p>
-      <ul className="list-disc list-inside text-gray-600 mb-6">
-        <li className="mb-2">
-          Breast cancer is the most common form of cancer in women.
-        </li>
-        <li className="mb-2">
-          Women are more likely to develop breast cancer than men.
-        </li>
-        <li className="mb-2">
-          Early detection and treatment are key to managing breast cancer
-          effectively.
-        </li>
-        <li className="mb-2">
-          Breast cancer is often curable with appropriate treatment.
-        </li>
-      </ul>
+    <div className="relative min-h-screen w-full font-montserrat flex flex-col border border-gray-300 rounded-lg overflow-hidden">
+      {/* 🌸 Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-rose-200 via-rose-200 to-rose-300"></div>
+      <div className="absolute inset-0 bg-black/10"></div>
+
+      {/* 🌸 Hero Section */}
+      <main className="relative z-10 flex-grow flex flex-col items-center justify-center px-6 py-16 text-center">
+        <h1 className="text-5xl font-bold mb-4 text-white drop-shadow-lg">
+          Breast Cancer Awareness
+        </h1>
+        <p className="text-lg mb-8 text-rose-50 max-w-2xl drop-shadow-md">
+          Understanding the signs, prevention, and treatment of breast cancer
+          empowers you to take charge of your health.
+        </p>
+
+        {/* 🌸 Content Section */}
+        <div className="max-w-6xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8">
+          {/* Left: Text Content */}
+          <div className="text-left space-y-4 text-gray-800">
+            <h2 className="text-2xl font-bold text-rose-600">
+              What Is Breast Cancer?
+            </h2>
+            <p>
+              Breast cancer develops when abnormal cells in the breast grow and
+              divide uncontrollably, forming a tumor. It is the most common
+              cancer among women globally, though men can be affected too.
+            </p>
+
+            <h2 className="text-2xl font-bold text-rose-600">
+              Key Facts and Awareness
+            </h2>
+            <ul className="list-disc list-inside space-y-2">
+              <li>Breast cancer is the most common form of cancer in women.</li>
+              <li>
+                Early detection through screening can greatly improve outcomes.
+              </li>
+              <li>
+                A healthy lifestyle — regular exercise and a balanced diet — may
+                reduce risk.
+              </li>
+              <li>
+                Modern treatments make breast cancer often curable when detected
+                early.
+              </li>
+            </ul>
+
+            <h2 className="text-2xl font-bold text-rose-600">
+              Prevention and Support
+            </h2>
+            <p>
+              Regular self-exams, mammograms, and awareness of changes in your
+              body are key. Remember, support from loved ones and healthcare
+              professionals plays a huge role in recovery.
+            </p>
+          </div>
+
+          {/* Right: Image */}
+          <div className="flex justify-center">
+            <img
+              src="https://images.unsplash.com/photo-1604515971042-00fef06b4d89?auto=format&fit=crop&w=800&q=80"
+              alt="Breast cancer awareness ribbon"
+              className="rounded-2xl shadow-md object-cover w-full h-80"
+            />
+          </div>
+        </div>
+      </main>
     </div>
   );
 }
