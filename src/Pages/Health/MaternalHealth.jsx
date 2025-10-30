@@ -1,36 +1,73 @@
 export default function MaternalHealth() {
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md mt-10">
-      <h1 className="text-3xl font-bold text-gray-800 mb-4">Maternal Health</h1>
-      <p className="text-gray-600 mb-6">
-        Maternal health refers to the health of women during pregnancy,
-        childbirth, and the postpartum period. It encompasses a wide range of
-        health issues, including prenatal care, nutrition, mental health, and
-        access to healthcare services.
-      </p>
-      <p className="text-gray-600 mb-6">
-        Ensuring good maternal health is crucial for the well-being of both the
-        mother and the child. It helps prevent complications during pregnancy,
-        childbirth, and the postpartum period. Here are some important facts
-        about maternal health:
-      </p>
-      <ul className="list-disc list-inside text-gray-600 mb-6">
-        <li className="mb-2">
-          Maternal health is essential for a healthy pregnancy, childbirth, and
-          postpartum recovery.
-        </li>
-        <li className="mb-2">
-          Proper prenatal care, nutrition, mental health, and access to
-          healthcare services are essential for a healthy pregnancy.
-        </li>
-        <li className="mb-2">
-          Early detection and treatment of maternal health issues are key to
-          preventing complications and promoting a healthy pregnancy.
-        </li>
-        <li className="mb-2">
-          Maternal health is often curable with appropriate treatment.
-        </li>
-      </ul>
+    <div className="relative min-h-screen w-full font-montserrat flex flex-col border border-gray-300 rounded-lg overflow-hidden">
+      {/* 🌸 Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-rose-200 via-rose-200 to-rose-300"></div>
+      <div className="absolute inset-0 bg-black/10"></div>
+
+      {/* 🌸 Hero Section */}
+      <main className="relative z-10 flex-grow flex flex-col items-center justify-center px-6 py-16 text-center">
+        <h1 className="text-5xl font-bold mb-4 text-white drop-shadow-lg">
+          Maternal Health
+        </h1>
+        <p className="text-lg mb-8 text-rose-50 max-w-2xl drop-shadow-md">
+          Supporting women through pregnancy, childbirth, and postpartum care to
+          ensure the best possible outcomes for both mother and child.
+        </p>
+
+        {/* 🌸 Content Section */}
+        <div className="max-w-6xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8">
+          {/* Left: Text Content */}
+          <div className="text-left space-y-4 text-gray-800">
+            <h2 className="text-2xl font-bold text-rose-600">
+              What Is Maternal Health?
+            </h2>
+            <p>
+              Maternal health refers to the well-being of women during
+              pregnancy, childbirth, and the postpartum period. It includes
+              physical, mental, and emotional aspects, ensuring both mother and
+              baby are healthy.
+            </p>
+
+            <h2 className="text-2xl font-bold text-rose-600">
+              Why It’s Important
+            </h2>
+            <p>
+              Access to quality maternal healthcare can prevent complications
+              and save lives. Good prenatal and postnatal care supports the
+              health of both mother and child, reducing risks during delivery.
+            </p>
+
+            <h2 className="text-2xl font-bold text-rose-600">Key Insights</h2>
+            <ul className="list-disc list-inside space-y-2">
+              <li>
+                Regular prenatal checkups and nutrition are vital for maternal
+                and fetal health.
+              </li>
+              <li>
+                Mental health support during pregnancy and postpartum is crucial
+                for emotional well-being.
+              </li>
+              <li>
+                Early detection and treatment of complications can save lives.
+              </li>
+              <li>
+                Global maternal mortality has decreased significantly, but
+                continued awareness and access to care remain essential.
+              </li>
+            </ul>
+          </div>
+
+          {/* Right: Image */}
+          <div className="flex justify-center">
+            <img
+              src="https://images.unsplash.com/photo-1600118072690-8a3a0d6e77ef?auto=format&fit=crop&w=800&q=80"
+              alt="Maternal health care"
+              className="rounded-2xl shadow-md object-cover w-full h-80"
+            />
+          </div>
+        </div>
+      </main>
     </div>
   );
 }
