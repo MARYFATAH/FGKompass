@@ -29,7 +29,7 @@ export default function Home() {
         </p>
 
         {/* 💡 Featured Minimal Cards Section */}
-        <section className="w-full max-w-5xl text-left">
+        <section className="relative w-full  text-left">
           <h2 className="text-lg font-semibold  text-white drop-shadow-100 mb-6 drop-shadow-md border-b border-rose-100 pb-2">
             Explore by:
           </h2>
@@ -59,7 +59,7 @@ export default function Home() {
         </section>
 
         {/* 📚 More on Topic Section */}
-        <section className="w-full max-w-5xl text-left">
+        <section className=" relative w-full  text-left">
           <h2 className="text-lg font-semibold  text-white drop-shadow-100 mb-6 drop-shadow-md border-b border-rose-100 pb-2">
             More on Topic
           </h2>
@@ -67,7 +67,7 @@ export default function Home() {
         </section>
 
         {/* 💡 Featured Minimal Cards Section */}
-        <section className="w-full max-w-5xl text-left">
+        <section className="w-full  text-left">
           <h2 className="text-lg font-semibold  text-white drop-shadow-100 mb-6 drop-shadow-md border-b border-rose-100 pb-2">
             Health Conditions
           </h2>

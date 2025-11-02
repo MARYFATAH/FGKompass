@@ -12,167 +12,160 @@ export default function Nav() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <svg
-                className="h-8 w-8 text-rose-600"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M13 10V3L4 14h7v7l9-11h-7z"
-                />
-              </svg>
-            </div>
-
-            {/* Navigation Links */}
-            <div className="hidden sm:ml-6 sm:flex sm:space-x-8 relative z-[9999]">
-              <Link
-                to="/home"
-                className={`${baseLinkClasses} ${
-                  isActive("/home")
-                    ? "text-black border-b-2 border-rose-400"
-                    : "text-gray-600 hover:border-b-2 hover:border-rose-400"
-                }`}
-              >
-                Home
-              </Link>
-
-              <Link
-                to="/contact"
-                className={`${baseLinkClasses} ${
-                  isActive("/contact")
-                    ? "text-black border-b-2 border-rose-400"
-                    : "text-gray-600 hover:border-b-2 hover:border-rose-400"
-                }`}
-              >
-                Contact
-              </Link>
-
-              <Link
-                to="/about"
-                className={`${baseLinkClasses} ${
-                  isActive("/about")
-                    ? "text-black border-b-2 border-rose-400"
-                    : "text-gray-600 hover:border-b-2 hover:border-rose-400"
-                }`}
-              >
-                About
-              </Link>
-
-              {/* Wellness Dropdown */}
-              <div className="relative group z-[9999]">
-                <button
-                  className={`${baseLinkClasses} text-gray-600 hover:text-black flex items-center`}
-                >
-                  Wellness
-                  <svg
-                    className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180 group-hover:text-rose-600"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-
-                {/* Dropdown Menu */}
-                <ul
-                  role="menu"
-                  className="absolute left-0 mt-2 min-w-[180px] rounded-lg border border-slate-200 bg-white p-1.5 shadow-lg 
-                             opacity-0 invisible group-hover:opacity-100 group-hover:visible 
-                             transition-all duration-200 ease-in-out 
-                             z-[9999]"
-                >
-                  <li className="cursor-pointer text-slate-800 flex w-full text-sm items-center rounded-md p-3 hover:bg-slate-100">
-                    <Link to="/wellness/fitness">Fitness</Link>
-                  </li>
-                  <li className="cursor-pointer text-slate-800 flex w-full text-sm items-center rounded-md p-3 hover:bg-slate-100">
-                    <Link to="/wellness/nutrition">Nutrition</Link>
-                  </li>
-                  <li className="cursor-pointer text-slate-800 flex w-full text-sm items-center rounded-md p-3 hover:bg-slate-100">
-                    <Link to="/wellness/sleep">Sleep</Link>
-                  </li>
-                  <li className="cursor-pointer text-slate-800 flex w-full text-sm items-center rounded-md p-3 hover:bg-slate-100">
-                    <Link to="/wellness/recipe">Recipe</Link>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Health Condition Dropdown */}
-              <div className="relative group z-[9999]">
-                <button
-                  className={`${baseLinkClasses} text-gray-600 hover:text-black flex items-center `}
-                >
-                  Health Condition
-                  <svg
-                    className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180 group-hover:text-rose-600"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-
-                {/* Dropdown Menu */}
-                <ul
-                  role="menu"
-                  className="absolute left-0 mt-2 min-w-[400px] grid grid-cols-2 rounded-lg border border-slate-200 bg-white p-1.5 shadow-lg 
-                             opacity-0 invisible group-hover:opacity-100 group-hover:visible 
-                             transition-all duration-200 ease-in-out 
-                             z-[9999]"
-                >
-                  <li className="cursor-pointer text-slate-800 flex  w-full text-sm items-center rounded-md p-3 hover:bg-slate-100">
-                    <Link to="/health/heart-disease">Heart Disease</Link>
-                  </li>
-                  <li className="cursor-pointer text-slate-800 flex w-full text-sm items-center rounded-md p-3 hover:bg-slate-100">
-                    <Link to="/health/breast-cancer">Breast Cancer</Link>
-                  </li>
-                  <li className="cursor-pointer text-slate-800 flex w-full text-sm items-center rounded-md p-3 hover:bg-slate-100">
-                    <Link to="/health/diabetes">Diabetes</Link>
-                  </li>
-                  <li className="cursor-pointer text-slate-800 flex w-full text-sm items-center rounded-md p-3 hover:bg-slate-100">
-                    <Link to="/health/osteoporosis">Osteoporosis</Link>
-                  </li>
-                  <li className="cursor-pointer text-slate-800 flex w-full text-sm items-center rounded-md p-3 hover:bg-slate-100">
-                    <Link to="/health/endometriosis">Endometriosis</Link>
-                  </li>
-                  <li className="cursor-pointer text-slate-800 flex w-full text-sm items-center rounded-md p-3 hover:bg-slate-100">
-                    <Link to="/health/maternal-health"> Maternal Health</Link>
-                  </li>
-                  <li className="cursor-pointer text-slate-800 flex w-full text-sm items-center rounded-md p-3 hover:bg-slate-100">
-                    <Link to="/health/mental-health">Mental Health</Link>
-                  </li>
-                  <li className="cursor-pointer text-slate-800 flex w-full text-sm items-center rounded-md p-3 hover:bg-slate-100">
-                    <Link to="/health/menopause">Menopause</Link>
-                  </li>
-                  <li className="cursor-pointer text-slate-800 flex w-full text-sm items-center rounded-md p-3 hover:bg-slate-100">
-                    <Link to="/health/autoimmune-diseases">
-                      {" "}
-                      Autoimmune Diseases
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
+          <div className="flex items-center space-x-2">
+            <svg
+              className="h-8 w-8 text-rose-600"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M13 10V3L4 14h7v7l9-11h-7z"
+              />
+            </svg>
+            <span className="text-xl font-bold text-rose-600">FG Kompass</span>
           </div>
 
-          {/* Search + Icons */}
+          {/* Main Navigation Links */}
+          <div className="hidden sm:flex sm:space-x-8 items-center relative z-[9999]">
+            {/* Home */}
+            <Link
+              to="/home"
+              className={`${baseLinkClasses} ${
+                isActive("/home")
+                  ? "text-black border-b-2 border-rose-400"
+                  : "text-gray-600 hover:border-b-2 hover:border-rose-400"
+              }`}
+            >
+              Home
+            </Link>
+
+            {/* 🌿 Wellness Dropdown */}
+            <div className="relative group">
+              <button
+                className={`${baseLinkClasses} text-gray-600 hover:text-black flex items-center`}
+              >
+                Wellness
+                <svg
+                  className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180 group-hover:text-rose-600"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+
+              <ul
+                role="menu"
+                className="absolute left-0 mt-2 min-w-[180px] rounded-lg border border-slate-200 bg-white p-1.5 shadow-lg 
+                           opacity-0 invisible group-hover:opacity-100 group-hover:visible 
+                           transition-all duration-200 ease-in-out"
+              >
+                {[
+                  { name: "Fitness", to: "/wellness/fitness" },
+                  { name: "Nutrition", to: "/wellness/nutrition" },
+                  { name: "Sleep", to: "/wellness/sleep" },
+                  { name: "Recipe", to: "/wellness/recipe" },
+                ].map((item) => (
+                  <li key={item.to}>
+                    <Link
+                      to={item.to}
+                      className="block text-slate-800 text-sm rounded-md p-3 hover:bg-slate-100"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* 🩺 Health Dropdown */}
+            <div className="relative group">
+              <button
+                className={`${baseLinkClasses} text-gray-600 hover:text-black flex items-center`}
+              >
+                Health Condition
+                <svg
+                  className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180 group-hover:text-rose-600"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+
+              <ul
+                role="menu"
+                className="absolute left-0 mt-2 min-w-[400px] grid grid-cols-2 rounded-lg border border-slate-200 bg-white p-1.5 shadow-lg 
+                           opacity-0 invisible group-hover:opacity-100 group-hover:visible 
+                           transition-all duration-200 ease-in-out"
+              >
+                {[
+                  { name: "Heart Disease", to: "/health/heart-disease" },
+                  { name: "Breast Cancer", to: "/health/breast-cancer" },
+                  { name: "Diabetes", to: "/health/diabetes" },
+                  { name: "Osteoporosis", to: "/health/osteoporosis" },
+                  { name: "Endometriosis", to: "/health/endometriosis" },
+                  { name: "Maternal Health", to: "/health/maternal-health" },
+                  { name: "Mental Health", to: "/health/mental-health" },
+                  { name: "Menopause", to: "/health/menopause" },
+                  {
+                    name: "Autoimmune Diseases",
+                    to: "/health/autoimmune-diseases",
+                  },
+                ].map((item) => (
+                  <li key={item.to}>
+                    <Link
+                      to={item.to}
+                      className="block text-slate-800 text-sm rounded-md p-3 hover:bg-slate-100"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Static Links */}
+            <Link
+              to="/about"
+              className={`${baseLinkClasses} ${
+                isActive("/about")
+                  ? "text-black border-b-2 border-rose-400"
+                  : "text-gray-600 hover:border-b-2 hover:border-rose-400"
+              }`}
+            >
+              About
+            </Link>
+
+            <Link
+              to="/contact"
+              className={`${baseLinkClasses} ${
+                isActive("/contact")
+                  ? "text-black border-b-2 border-rose-400"
+                  : "text-gray-600 hover:border-b-2 hover:border-rose-400"
+              }`}
+            >
+              Contact
+            </Link>
+          </div>
+
+          {/* 🔍 Search & Profile */}
           <div className="flex items-center space-x-4">
             <div className="hidden lg:block relative">
               <span className="absolute inset-y-0 left-0 flex items-center pl-3">
@@ -217,7 +210,7 @@ export default function Nav() {
             <div className="flex-shrink-0">
               <img
                 className="h-8 w-8 rounded-full object-cover"
-                src="../assets/react.svg"
+                src="/assets/react.svg"
                 alt="User Profile"
               />
             </div>

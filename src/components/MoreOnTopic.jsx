@@ -21,7 +21,7 @@ const articles = [
 
 export default function MoreOnTopic() {
   return (
-    <section className="bg-white/100 rounded-xl shadow-sm p-6 mt-10 max-w-5xl mx-auto">
+    <section className="bg-white/100 rounded-xl shadow-sm p-6 mt-10 w-5/6 mx-auto">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {articles.map((article) => (
           <a
