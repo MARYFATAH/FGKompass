@@ -1,71 +1,113 @@
-export default function BreastCancer() {
+// src/Pages/Health/BreastCancer.jsx
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { client } from "../../sanity/client";
+
+const POSTS_QUERY = `*[
+  _type == "post" &&
+  defined(slug.current) &&
+  "breastcancer" in topics[]->slug.current
+]|order(publishedAt desc)[0...12]{
+  _id,
+  title,
+  slug,
+  publishedAt,
+  "imageUrl": image.asset->url
+}`;
+
+export default function BreastCancerPage() {
+  const [posts, setPosts] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    client
+      .fetch(POSTS_QUERY)
+      .then((data) => setPosts(data))
+      .catch((err) => {
+        console.error("Error fetching posts:", err);
+        setError(err.message);
+      });
+  }, []);
+
+  if (error)
+    return <p className="text-red-500 text-center mt-8">Error: {error}</p>;
+
   return (
-    <div className="relative min-h-screen w-full font-montserrat flex flex-col border border-gray-300 rounded-lg overflow-hidden">
-      {/* 🌸 Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-rose-200 via-rose-200 to-rose-300"></div>
-      <div className="absolute inset-0 bg-black/10"></div>
-
+    <div className="relative min-h-screen w-full font-montserrat bg-gradient-to-b from-pink-100 to-white text-gray-800">
       {/* 🌸 Hero Section */}
-      <main className="relative z-10 flex-grow flex flex-col items-center justify-center px-6 py-16 text-center">
-        <h1 className="text-5xl font-bold mb-4 text-white drop-shadow-lg">
-          Breast Cancer Awareness
-        </h1>
-        <p className="text-lg mb-8 text-rose-50 max-w-2xl drop-shadow-md">
-          Understanding the signs, prevention, and treatment of breast cancer
-          empowers you to take charge of your health.
-        </p>
+      <section className="relative py-24 text-center text-white overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1604515971042-00fef06b4d89?auto=format&fit=crop&w=1600&q=80"
+          alt="Breast Cancer Awareness"
+          className="absolute inset-0 w-full h-full object-cover opacity-40"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/20"></div>
 
-        {/* 🌸 Content Section */}
-        <div className="max-w-6xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8">
-          {/* Left: Text Content */}
-          <div className="text-left space-y-4 text-gray-800">
-            <h2 className="text-2xl font-bold text-rose-600">
-              What Is Breast Cancer?
-            </h2>
-            <p>
-              Breast cancer develops when abnormal cells in the breast grow and
-              divide uncontrollably, forming a tumor. It is the most common
-              cancer among women globally, though men can be affected too.
-            </p>
-
-            <h2 className="text-2xl font-bold text-rose-600">
-              Key Facts and Awareness
-            </h2>
-            <ul className="list-disc list-inside space-y-2">
-              <li>Breast cancer is the most common form of cancer in women.</li>
-              <li>
-                Early detection through screening can greatly improve outcomes.
-              </li>
-              <li>
-                A healthy lifestyle — regular exercise and a balanced diet — may
-                reduce risk.
-              </li>
-              <li>
-                Modern treatments make breast cancer often curable when detected
-                early.
-              </li>
-            </ul>
-
-            <h2 className="text-2xl font-bold text-rose-600">
-              Prevention and Support
-            </h2>
-            <p>
-              Regular self-exams, mammograms, and awareness of changes in your
-              body are key. Remember, support from loved ones and healthcare
-              professionals plays a huge role in recovery.
-            </p>
-          </div>
-
-          {/* Right: Image */}
-          <div className="flex justify-center">
-            <img
-              src="https://images.unsplash.com/photo-1604515971042-00fef06b4d89?auto=format&fit=crop&w=800&q=80"
-              alt="Breast cancer awareness ribbon"
-              className="rounded-2xl shadow-md object-cover w-full h-80"
-            />
-          </div>
+        <div className="relative z-10 max-w-3xl mx-auto px-6">
+          <h1 className="text-5xl font-bold mb-4 drop-shadow-md">
+            Breast Cancer Awareness
+          </h1>
+          <p className="text-lg text-pink-50">
+            Learn about prevention, early detection, and treatment options.
+          </p>
         </div>
-      </main>
+      </section>
+
+      {/* 🌸 Articles Section */}
+      <section className="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        {posts.length === 0 ? (
+          <p className="col-span-full text-center text-gray-600">
+            No articles available.
+          </p>
+        ) : (
+          posts.map((post) => (
+            <article
+              key={post._id}
+              className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-md hover:shadow-xl overflow-hidden transition"
+            >
+              <img
+                src={
+                  post.imageUrl ||
+                  "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80"
+                }
+                alt={post.title}
+                className="w-full h-52 object-cover"
+              />
+
+              <div className="p-6 flex flex-col h-[260px] justify-between">
+                <div>
+                  <h3 className="text-xl font-semibold text-pink-600 mb-2">
+                    {post.title}
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    Published:{" "}
+                    {new Date(post.publishedAt).toLocaleDateString("en-US")}
+                  </p>
+                </div>
+                <Link
+                  to={`/${post.slug.current}`}
+                  className="self-start mt-4 bg-pink-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-pink-600 transition"
+                >
+                  Read More
+                </Link>
+              </div>
+            </article>
+          ))
+        )}
+      </section>
+
+      {/* 🌸 Tips Section */}
+      <section className="max-w-4xl mx-auto px-6 py-12 bg-pink-50 border border-pink-200 rounded-2xl shadow-sm mb-20">
+        <h3 className="text-2xl font-semibold text-pink-600 mb-4">
+          Early Detection Saves Lives
+        </h3>
+        <ul className="list-disc list-inside text-gray-700 space-y-2 text-left">
+          <li>Perform regular self-breast exams.</li>
+          <li>Schedule mammograms as recommended by your doctor.</li>
+          <li>Maintain a healthy diet and active lifestyle.</li>
+          <li>Seek support from your healthcare provider and community.</li>
+        </ul>
+      </section>
     </div>
   );
 }

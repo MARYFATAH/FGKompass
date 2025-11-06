@@ -2,14 +2,27 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { client } from "../../sanity/client";
 
-const POSTS_QUERY = `*[
-  _type == "post"
-  && defined(slug.current)
-]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt, image}`;
-
 export default function HeartDiseasePage() {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState(null);
+
+  // ✅ GROQ query: fetch only posts tagged with the "heart-disease" topic
+  const POSTS_QUERY = `*[
+    _type == "post" &&
+    defined(slug.current) &&
+    "heart-disease" in topics[]->slug.current
+  ] | order(publishedAt desc)[0...12] {
+    _id,
+    title,
+    slug,
+    publishedAt,
+    image {
+      asset->{
+        url
+      }
+    },
+    excerpt
+  }`;
 
   useEffect(() => {
     client
@@ -87,6 +100,11 @@ export default function HeartDiseasePage() {
                     Published:{" "}
                     {new Date(post.publishedAt).toLocaleDateString("en-US")}
                   </p>
+                  {post.excerpt && (
+                    <p className="text-gray-700 text-sm mt-2 line-clamp-3">
+                      {post.excerpt}
+                    </p>
+                  )}
                 </div>
                 <Link
                   to={`/${post.slug.current}`}
