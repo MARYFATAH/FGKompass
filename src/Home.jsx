@@ -32,28 +32,28 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen font-montserrat flex flex-col overflow-hidden">
-      {/* 🌸 Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-rose-200 via-rose-300 to-rose-500"></div>
-      <div className="absolute inset-0 bg-black/10"></div>
+      {/* 🌸 Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-rose-200 via-rose-300 to-rose-500" />
+      <div className="absolute inset-0 bg-black/10" />
 
       {/* 🩵 Main Content */}
-      <main className="relative flex-grow flex flex-col items-center text-center px-4 py-12 space-y-12">
+      <main className="relative flex-grow flex flex-col items-center text-center px-6 py-16 space-y-16">
         {/* 🌿 Hero Section */}
-        <PictureCard
-          className="w-4/5 max-w-6xl mx-auto"
-          title="Holistic Health at Your Fingertips"
-          description="Discover a world of wellness with our curated resources and expert guidance."
-          imageUrl="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80"
-          imageAlt="Holistic health and wellness"
-        />
+        <div className="w-full max-w-6xl mx-auto">
+          <PictureCard
+            title="Holistic Health at Your Fingertips"
+            description="Discover a world of wellness with our curated resources and expert guidance."
+            imageUrl="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80"
+            imageAlt="Holistic health and wellness"
+          />
+          <p className="mt-8 text-lg text-rose-50 max-w-xl mx-auto drop-shadow-md">
+            Your guide to holistic health and wellness.
+          </p>
+        </div>
 
-        <p className="text-lg text-rose-50 max-w-md drop-shadow-md">
-          Your guide to holistic health and wellness.
-        </p>
-
-        {/* 🌟 Featured Articles Section */}
-        <section className="relative w-full text-left">
-          <h2 className="text-lg font-semibold text-white mb-6 border-b border-rose-100 pb-2">
+        {/* 🌟 Featured Articles */}
+        <section className="w-full max-w-6xl text-left space-y-8">
+          <h2 className="text-2xl font-semibold text-white border-b border-rose-100 pb-3">
             Featured Articles
           </h2>
 
@@ -62,11 +62,11 @@ export default function Home() {
           ) : featured.length === 0 ? (
             <p className="text-rose-50">No featured articles yet.</p>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {featured.map((post) => (
                 <article
                   key={post._id}
-                  className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-md hover:shadow-xl overflow-hidden transition"
+                  className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-md hover:shadow-xl overflow-hidden transition-all duration-200"
                 >
                   <img
                     src={
@@ -88,7 +88,7 @@ export default function Home() {
                     </div>
                     <Link
                       to={`/${post.slug.current}`}
-                      className="self-start mt-4 bg-rose-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-rose-600 transition"
+                      className="self-start mt-4 bg-rose-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-rose-600 transition-colors"
                     >
                       Read More
                     </Link>
@@ -100,11 +100,12 @@ export default function Home() {
         </section>
 
         {/* 💡 Explore by Section */}
-        <section className="relative w-full text-left">
-          <h2 className="text-lg font-semibold text-white mb-6 border-b border-rose-100 pb-2">
+        <section className="w-full max-w-6xl text-left space-y-8">
+          <h2 className="text-2xl font-semibold text-white border-b border-rose-100 pb-3">
             Explore by:
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             <MinimalCard
               title="Nutrition"
               description="Tips and guides for a balanced diet."
@@ -128,19 +129,19 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 📚 More on Topic Section */}
-        <section className="relative w-full text-left">
-          <h2 className="text-lg font-semibold text-white mb-6 border-b border-rose-100 pb-2">
+        {/* 📚 More on Topic */}
+        <section className="w-full max-w-6xl text-left space-y-8">
+          <h2 className="text-2xl font-semibold text-white border-b border-rose-100 pb-3">
             More on Topic
           </h2>
           <MoreOnTopic />
         </section>
 
-        {/* 🔗 CTA Button */}
-        <div className="flex items-center justify-center mt-8">
+        {/* 🔗 CTA */}
+        <div className="flex items-center justify-center">
           <a
             href="/about"
-            className="transition-colors shadow-sm text-white font-semibold py-2 px-6 rounded-sm border border-white hover:bg-white hover:text-rose-500"
+            className="transition-colors shadow-sm text-white font-semibold py-3 px-8 rounded-md border border-white hover:bg-white hover:text-rose-500"
           >
             Learn More
           </a>

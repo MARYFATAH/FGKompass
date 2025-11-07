@@ -46,13 +46,13 @@ export default function HeartDiseasePage() {
           alt="Heart Disease Awareness"
           className="absolute inset-0 w-full h-full object-cover opacity-40"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/20" />
 
         <div className="relative z-10 max-w-3xl mx-auto px-6">
-          <h1 className="text-5xl font-bold mb-4 drop-shadow-md">
+          <h1 className="text-5xl sm:text-6xl font-bold mb-4 drop-shadow-md">
             Heart Disease
           </h1>
-          <p className="text-lg text-rose-50">
+          <p className="text-lg sm:text-xl text-rose-50 leading-relaxed">
             Learn how to care for your heart and reduce the risk of
             cardiovascular diseases.
           </p>
@@ -60,11 +60,11 @@ export default function HeartDiseasePage() {
       </section>
 
       {/* 🌸 Intro Section */}
-      <section className="max-w-4xl mx-auto px-6 py-12 text-center">
-        <h2 className="text-3xl font-bold text-rose-600 mb-4">
+      <section className="max-w-4xl mx-auto px-6 py-16 text-center space-y-4">
+        <h2 className="text-3xl font-bold text-rose-600">
           What You Should Know
         </h2>
-        <p className="text-gray-600">
+        <p className="text-gray-700 leading-relaxed text-base sm:text-lg">
           Heart disease is one of the leading health concerns worldwide. Through
           awareness, preventive care, and lifestyle changes, you can
           significantly lower your risk and live a stronger, healthier life.
@@ -72,58 +72,62 @@ export default function HeartDiseasePage() {
       </section>
 
       {/* 🌸 Articles Section */}
-      <section className="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      <section className="max-w-6xl mx-auto px-6 py-16">
+        <h2 className="text-2xl font-semibold text-rose-600 mb-10 text-center">
+          Latest Articles
+        </h2>
+
         {posts.length === 0 ? (
-          <p className="col-span-full text-center text-gray-600">
-            No articles available.
-          </p>
+          <p className="text-center text-gray-600">No articles available.</p>
         ) : (
-          posts.map((post) => (
-            <article
-              key={post._id}
-              className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-md hover:shadow-xl overflow-hidden transition"
-            >
-              <img
-                src={
-                  post.image?.asset?.url ||
-                  "https://images.unsplash.com/photo-1516542076529-1ea3854896f2?auto=format&fit=crop&w=800&q=80"
-                }
-                alt={post.title}
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col h-[260px] justify-between">
-                <div>
-                  <h3 className="text-xl font-semibold text-rose-600 mb-2">
-                    {post.title}
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    Published:{" "}
-                    {new Date(post.publishedAt).toLocaleDateString("en-US")}
-                  </p>
-                  {post.excerpt && (
-                    <p className="text-gray-700 text-sm mt-2 line-clamp-3">
-                      {post.excerpt}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            {posts.map((post) => (
+              <article
+                key={post._id}
+                className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-md hover:shadow-xl overflow-hidden transition-transform duration-200 hover:-translate-y-1"
+              >
+                <img
+                  src={
+                    post.image?.asset?.url ||
+                    "https://images.unsplash.com/photo-1516542076529-1ea3854896f2?auto=format&fit=crop&w=800&q=80"
+                  }
+                  alt={post.title}
+                  className="w-full h-52 object-cover"
+                />
+                <div className="p-6 flex flex-col justify-between h-[260px]">
+                  <div>
+                    <h3 className="text-xl font-semibold text-rose-600 mb-1">
+                      {post.title}
+                    </h3>
+                    <p className="text-sm text-gray-500 mb-2">
+                      Published:{" "}
+                      {new Date(post.publishedAt).toLocaleDateString("en-US")}
                     </p>
-                  )}
+                    {post.excerpt && (
+                      <p className="text-gray-700 text-sm line-clamp-3">
+                        {post.excerpt}
+                      </p>
+                    )}
+                  </div>
+                  <Link
+                    to={`/${post.slug.current}`}
+                    className="self-start mt-4 bg-rose-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-rose-600 transition"
+                  >
+                    Read More
+                  </Link>
                 </div>
-                <Link
-                  to={`/${post.slug.current}`}
-                  className="self-start mt-4 bg-rose-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-rose-600 transition"
-                >
-                  Read More
-                </Link>
-              </div>
-            </article>
-          ))
+              </article>
+            ))}
+          </div>
         )}
       </section>
 
       {/* 🌸 Takeaway Section */}
-      <section className="max-w-4xl mx-auto px-6 py-12 bg-rose-50 border border-rose-200 rounded-2xl shadow-sm mb-20">
-        <h3 className="text-2xl font-semibold text-rose-600 mb-4">
+      <section className="max-w-4xl mx-auto px-6 py-16 bg-rose-50 border border-rose-200 rounded-2xl shadow-sm mb-24 text-center sm:text-left">
+        <h3 className="text-2xl font-semibold text-rose-600 mb-6">
           Protect Your Heart
         </h3>
-        <ul className="list-disc list-inside text-gray-700 space-y-2 text-left">
+        <ul className="list-disc list-inside text-gray-700 space-y-3">
           <li>Eat plenty of fruits, vegetables, and whole grains.</li>
           <li>Exercise regularly to strengthen your heart and body.</li>
           <li>Quit smoking and reduce alcohol consumption.</li>
