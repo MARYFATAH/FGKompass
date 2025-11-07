@@ -1,32 +1,19 @@
+import HealthTopicPage from "../../Components/HealthTopicPage";
+
 export default function Fitness() {
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md mt-10">
-      <h1 className="text-3xl font-bold text-gray-800 mb-4">Fitness</h1>
-      <p className="text-gray-600 mb-6">
-        Fitness is a vital aspect of overall wellness and health. It plays a
-        crucial role in regulating the body's natural rhythms and promoting
-        overall well-being.
-      </p>
-      <p className="text-gray-600 mb-6">
-        Proper fitness habits can have a profound impact on physical and mental
-        health. Here are some important facts about fitness:
-      </p>
-      <ul className="list-disc list-inside text-gray-600 mb-6">
-        <li className="mb-2">
-          Fitness is essential for maintaining a healthy body and mind.
-        </li>
-        <li className="mb-2">
-          Fitness is a natural process that regulates the body's natural
-          rhythms.
-        </li>
-        <li className="mb-2">
-          Proper fitness habits can improve overall well-being and reduce the
-          risk of chronic diseases.
-        </li>
-        <li className="mb-2">
-          Fitness is essential for maintaining a healthy body and mind.
-        </li>
-      </ul>
-    </div>
+    <HealthTopicPage
+      title="Fitness & Physical Wellness"
+      slug="fitness"
+      heroImage="https://images.unsplash.com/photo-1558611848-73f7eb4001a1?auto=format&fit=crop&w=1600&q=80"
+      introText="Staying active is one of the best ways to support your heart, strengthen your body, and boost your mood. Fitness is not just about exercise — it’s about creating a sustainable, healthy lifestyle."
+      tips={[
+        "Engage in at least 150 minutes of moderate activity per week.",
+        "Include both cardio and strength training in your routine.",
+        "Stay hydrated and fuel your body with nutritious foods.",
+        "Rest and recover — sleep and downtime are essential.",
+        "Choose activities you enjoy to make fitness a lifelong habit.",
+      ]}
+    />
   );
 }
