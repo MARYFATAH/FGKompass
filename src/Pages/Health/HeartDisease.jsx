@@ -4,7 +4,7 @@ export default function HeartDisease() {
   return (
     <HealthTopicPage
       title="Heart Disease"
-      slug="heartdisease"
+      slug="heart-disease"
       heroImage="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?auto=format&fit=crop&w=1600&q=80"
       introText="Heart disease remains one of the leading causes of death globally. Understanding the risks, maintaining a healthy lifestyle, and detecting issues early can significantly improve heart health and longevity."
       tips={[
