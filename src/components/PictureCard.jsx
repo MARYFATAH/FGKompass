@@ -24,6 +24,7 @@ const MinimalPictureCard = ({ imageUrl, imageAlt, title, description }) => {
     border-gray-200 
     border
     transition-all duration-300 
+    mt-8
    
     mx-auto
     ${

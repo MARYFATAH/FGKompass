@@ -4,6 +4,7 @@ import { client } from "./sanity/client";
 import PictureCard from "./components/PictureCard";
 import MinimalCard from "./components/MinimalCard";
 import MoreOnTopic from "./components/MoreOnTopic";
+import womenImg from "./assets/4women.jpg";
 
 export default function Home() {
   const [featured, setFeatured] = useState([]);
@@ -43,8 +44,8 @@ export default function Home() {
           <PictureCard
             title="Holistic Health at Your Fingertips"
             description="Discover a world of wellness with our curated resources and expert guidance."
-            imageUrl="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80"
-            imageAlt="Holistic health and wellness"
+            imageUrl={womenImg}
+            imageAlt="4 women"
           />
           <p className="mt-8 text-lg text-rose-50 max-w-xl mx-auto drop-shadow-md">
             Your guide to holistic health and wellness.
