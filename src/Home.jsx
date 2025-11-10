@@ -109,22 +109,27 @@ export default function Home() {
             <MinimalCard
               title="Nutrition"
               description="Tips and guides for a balanced diet."
+              link={"/wellness/nutrition"}
             />
             <MinimalCard
               title="Fitness"
               description="Workouts and routines for all levels."
+              link={"/wellness/fitness"}
             />
             <MinimalCard
-              title="Health"
+              title="Mental Health"
               description="Mental and physical wellness advice."
+              link={"/health/mental-health"}
             />
             <MinimalCard
-              title="Mindfulness"
-              description="Practices to cultivate inner peace."
+              title="Recipe"
+              description="Delicious and healthy meal ideas."
+              link={"/wellness/recipe"}
             />
             <MinimalCard
-              title="Meditation"
-              description="Guided meditation sessions for relaxation."
+              title="Pregnancy"
+              description="Guidance for a healthy pregnancy."
+              link={"/health/maternal-health"}
             />
           </div>
         </section>

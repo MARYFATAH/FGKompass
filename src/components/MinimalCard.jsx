@@ -1,92 +1,46 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const MinimalCard = ({ title, description, icon: Icon }) => {
+const MinimalCard = ({ title, description, icon: Icon, link }) => {
   return (
-    // Card Container: Subtle shadow, rounded corners, and a light background.
-    // Transition for a smooth hover effect.
-    <div
-      className="
-      bg-white 
-      p-6 md:p-8 
-      rounded-3xl
-      shadow-sm 
-      border border-gray-200 
-      hover:shadow-md 
-      hover:bg-gray-50 
-      transition duration-300 
-      max-w-sm 
-      mx-auto
-      
-    "
-    >
-      {/* Accent/Icon Section */}
+    <div className="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-200 hover:shadow-md hover:bg-gray-50 transition duration-300 max-w-sm mx-auto">
       <div className="flex items-center space-x-4 mb-4">
-        {/* Rose 400 as the accent color for the icon and a border for subtle depth */}
         {Icon && (
-          <div
-            className="
-            text-rose-400 
-            p-2 
-            border 
-            border-rose-400/50 
-            rounded-lg 
-            flex-shrink-0
-            text-center
-          "
-          >
-            {/* The icon size is set using Tailwind classes for consistency */}
+          <div className="text-rose-400 p-2 border border-rose-400/50 rounded-lg flex-shrink-0 text-center">
             <Icon className="h-6 w-6" aria-hidden="true" />
           </div>
         )}
+        <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
+      </div>
 
-        {/* Title: Primary dark gray for readability */}
-        <h3
-          className="
-          text-lg 
-          font-semibold 
-          text-gray-800
-        "
-        >
-          {title}
-        </h3>
-      </div>
-      {/* Description: Secondary light gray for minimal look */}
-      <p
-        className="
-        text-base 
-        text-gray-500
-      "
-      >
-        {description}
-      </p>
-      {/* Optional: Rose 400 link/button for action */}
-      <div className="mt-4">
-        <a
-          href="#"
-          className="
-            text-sm 
-            font-medium 
-            text-rose-500 
-            hover:text-rose-600 
-            transition duration-150
-          "
-        >
-          Learn More
-        </a>
-      </div>
+      <p className="text-base text-gray-500">{description}</p>
+
+      {link ? (
+        // If link starts with http -> external anchor, else a React Router Link
+        link.startsWith("http") ? (
+          <div className="mt-4">
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-rose-500 hover:text-rose-600 transition duration-150"
+            >
+              Learn More →
+            </a>
+          </div>
+        ) : (
+          <div className="mt-4">
+            <Link
+              to={link}
+              className="text-sm font-medium text-rose-500 hover:text-rose-600 transition duration-150"
+            >
+              Learn More →
+            </Link>
+          </div>
+        )
+      ) : null}
     </div>
   );
 };
 
 export default MinimalCard;
-
-// Example Usage (requires an icon library like Heroicons)
-// import { Zap } from 'lucide-react'; // If using Lucide
-// import { BoltIcon } from '@heroicons/react/24/outline'; // If using Heroicons
-
-/* <MinimalCard 
-  title="Minimal Design" 
-  description="This card uses white, light gray, and rose 400 for a clean, elegant, and non-distracting user interface." 
-  icon={BoltIcon} 
-/>
-*/
