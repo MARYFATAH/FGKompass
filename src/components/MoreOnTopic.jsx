@@ -21,22 +21,30 @@ const articles = [
 
 export default function MoreOnTopic() {
   return (
-    <section className="bg-white/100 rounded-xl shadow-sm p-6 mt-10 w-5/6 mx-auto">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <section className="w-full max-w-6xl mx-auto bg-white/90 backdrop-blur-sm rounded-2xl shadow-md p-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
         {articles.map((article) => (
           <a
             key={article.title}
             href="#"
-            className="flex items-center space-x-4 group"
+            className="flex items-center space-x-5 p-3 rounded-lg hover:bg-rose-50 transition-all duration-300 group"
           >
-            <img
-              src={article.img}
-              alt={article.title}
-              className="h-20 w-20 rounded-md object-cover group-hover:opacity-90 transition"
-            />
-            <h3 className="text-gray-800 font-medium group-hover:text-rose-600 transition">
-              {article.title}
-            </h3>
+            {/* 🖼️ Image */}
+            <div className="flex-shrink-0">
+              <img
+                src={article.img}
+                alt={article.title}
+                className="h-20 w-20 rounded-lg object-cover shadow-sm group-hover:shadow-md transition-transform duration-300 group-hover:scale-[1.03]"
+              />
+            </div>
+
+            {/* 🩵 Title */}
+            <div>
+              <h3 className="text-lg font-semibold text-slate-800 group-hover:text-rose-600 transition-colors leading-snug">
+                {article.title}
+              </h3>
+              <p className="text-sm text-slate-500 mt-1">Read more →</p>
+            </div>
           </a>
         ))}
       </div>

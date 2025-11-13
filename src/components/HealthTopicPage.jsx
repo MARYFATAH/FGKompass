@@ -40,50 +40,50 @@ export default function HealthTopicPage({
     return <p className="text-red-500 text-center mt-8">Error: {error}</p>;
 
   return (
-    <div className="relative min-h-screen w-full font-montserrat bg-gradient-to-b from-rose-100 to-white text-gray-800">
+    <div className="relative min-h-screen w-full font-montserrat bg-gradient-to-b from-rose-50 to-white text-gray-800">
       {/* 🌸 Hero Section */}
       <section className="relative py-24 text-center text-white overflow-hidden">
         <img
           src={heroImage}
           alt={`${title} Awareness`}
-          className="absolute inset-0 w-full h-full object-cover opacity-40"
+          className="absolute inset-0 w-full h-full object-cover opacity-50"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-transparent" />
 
         <div className="relative z-10 max-w-3xl mx-auto px-6">
-          <h1 className="text-5xl sm:text-6xl font-bold mb-4 drop-shadow-md">
+          <h1 className="text-5xl sm:text-6xl font-extrabold mb-5 drop-shadow-lg tracking-tight">
             {title}
           </h1>
-          <p className="text-lg sm:text-xl text-rose-50 leading-relaxed">
+          <p className="text-lg sm:text-xl text-rose-50/90 leading-relaxed font-light">
             {introText}
           </p>
         </div>
       </section>
 
       {/* 🌿 Intro Section */}
-      <section className="max-w-4xl mx-auto px-6 py-16 text-center space-y-4">
-        <h2 className="text-3xl font-bold text-rose-600">{introTitle}</h2>
-        <p className="text-gray-700 leading-relaxed text-base sm:text-lg">
+      <section className="max-w-4xl mx-auto px-6 py-20 text-center space-y-6">
+        <h2 className="text-3xl font-semibold text-rose-600">{introTitle}</h2>
+        <p className="text-gray-700 leading-relaxed text-base sm:text-lg max-w-2xl mx-auto">
           {introText}
         </p>
       </section>
 
       {/* 📰 Articles Section */}
       <section className="max-w-6xl mx-auto px-6 py-16">
-        <h2 className="text-2xl font-semibold text-rose-600 mb-10 text-center">
+        <h2 className="text-3xl font-semibold text-center text-rose-600 mb-12">
           Featured Articles
         </h2>
 
         {posts.length === 0 ? (
-          <p className="text-center text-gray-600">
+          <p className="text-center text-gray-600 text-lg">
             No articles available for this topic yet.
           </p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 items-stretch">
             {posts.map((post) => (
               <article
                 key={post._id}
-                className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-md hover:shadow-xl overflow-hidden transition-transform duration-200 hover:-translate-y-1"
+                className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-sm border border-rose-100 hover:border-rose-200 hover:shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1 flex flex-col justify-between"
               >
                 <img
                   src={
@@ -91,22 +91,20 @@ export default function HealthTopicPage({
                     "https://images.unsplash.com/photo-1590935217281-8b16ad3d5a70?auto=format&fit=crop&w=800&q=80"
                   }
                   alt={post.title}
-                  className="w-full h-52 object-cover"
+                  className="w-full h-56 object-cover"
                 />
-                <div className="p-6 flex flex-col justify-between h-[260px]">
+                <div className="p-6 flex flex-col justify-between flex-grow">
                   <div>
                     <h3 className="text-xl font-semibold text-rose-600 mb-1">
                       {post.title}
                     </h3>
-                    <p className="text-sm text-gray-500 mb-2">
-                      Published:{" "}
+                    <p className="text-sm text-gray-500 mb-3">
                       {new Date(post.publishedAt).toLocaleDateString("en-US")}
                     </p>
-                    {post.excerpt && (
-                      <p className="text-gray-700 text-sm line-clamp-3">
-                        {post.excerpt}
-                      </p>
-                    )}
+                    <p className="text-gray-700 text-sm line-clamp-3 leading-relaxed">
+                      {post.excerpt ||
+                        "Explore the latest insights and research on holistic wellness."}
+                    </p>
                   </div>
                   <Link
                     to={`/${post.slug.current}`}
@@ -123,13 +121,15 @@ export default function HealthTopicPage({
 
       {/* 💡 Tips Section */}
       {tips.length > 0 && (
-        <section className="max-w-4xl mx-auto px-6 py-16 bg-rose-50 border border-rose-200 rounded-2xl shadow-sm mb-24 text-center sm:text-left">
-          <h3 className="text-2xl font-semibold text-rose-600 mb-6">
+        <section className="max-w-4xl mx-auto px-6 py-16 bg-gradient-to-b from-rose-100 to-rose-50 border border-rose-200 rounded-2xl shadow-sm mb-24 text-center sm:text-left">
+          <h3 className="text-2xl font-semibold text-rose-600 mb-6 text-center sm:text-left">
             Helpful Tips
           </h3>
           <ul className="list-disc list-inside text-gray-700 space-y-3">
             {tips.map((tip, i) => (
-              <li key={i}>{tip}</li>
+              <li key={i} className="leading-relaxed">
+                {tip}
+              </li>
             ))}
           </ul>
         </section>

@@ -140,6 +140,16 @@ export default function Nav() {
                 ))}
               </ul>
             </div>
+            <Link
+              to="/tracker"
+              className={`${baseLinkClasses} ${
+                isActive("/tracker")
+                  ? "text-black border-b-2 border-rose-400"
+                  : "text-gray-600 hover:border-b-2 hover:border-rose-400"
+              }`}
+            >
+              Cycle Tracker
+            </Link>
 
             {/* Static Links */}
             <Link
@@ -150,7 +160,7 @@ export default function Nav() {
                   : "text-gray-600 hover:border-b-2 hover:border-rose-400"
               }`}
             >
-              About
+              About Us
             </Link>
 
             <Link
@@ -161,7 +171,7 @@ export default function Nav() {
                   : "text-gray-600 hover:border-b-2 hover:border-rose-400"
               }`}
             >
-              Contact
+              Contact Us
             </Link>
           </div>
 
@@ -207,13 +217,7 @@ export default function Nav() {
               </svg>
             </button>
 
-            <div className="flex-shrink-0">
-              <img
-                className="h-8 w-8 rounded-full object-cover"
-                src="/assets/react.svg"
-                alt="User Profile"
-              />
-            </div>
+            <div className="flex-shrink-0"></div>
           </div>
         </div>
       </div>

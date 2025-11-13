@@ -25,11 +25,10 @@ const MinimalPictureCard = ({ imageUrl, imageAlt, title, description }) => {
     border
     transition-all duration-300 
     mt-8
-   
     mx-auto
     ${
       isHovered
-        ? "border-rose-400 shadow-lg"
+        ? "border-gray-400 shadow-lg"
         : "border-gray-200 shadow-sm hover:shadow-md"
     }
   `;
@@ -49,58 +48,12 @@ const MinimalPictureCard = ({ imageUrl, imageAlt, title, description }) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Image Section */}
-      <div className="relative w-full h-48 md:h-56 bg-gray-100 flex items-center justify-center">
+      <div className="relative w-full h-48 md:h-90 bg-gray-100 flex items-center justify-center">
         <img
           src={imageUrl}
           alt={imageAlt}
-          className="w-full h-full object-cover"
+          className="w-full   object-cover object-center translate-y-2 md:translate-y-7 transition-transform duration-500 ease-in-out hover:scale-105"
         />
-        {/* Subtle overlay on hover (optional, for visual effect) */}
-        <div className={imageOverlayClass}></div>
-      </div>
-
-      {/* Content Section */}
-      <div className="p-6 md:p-8">
-        {/* Title: Dark gray primary text */}
-        <h3
-          className="
-          text-lg 
-          font-semibold 
-          text-gray-800 
-          mb-2
-        "
-        >
-          {title}
-        </h3>
-
-        {/* Description: Medium gray secondary text */}
-        <p
-          className="
-          text-base 
-          text-gray-500 
-          mb-4
-        "
-        >
-          {description}
-        </p>
-
-        {/* Action Link: Rose 500 for the action color */}
-        <div className="mt-auto">
-          {" "}
-          {/* Use mt-auto if you want it pushed to bottom in a flex column */}
-          <a
-            href="#"
-            className="
-              text-sm 
-              font-medium 
-              text-rose-500 
-              hover:text-rose-600 
-              transition duration-150
-            "
-          >
-            Learn More
-          </a>
-        </div>
       </div>
     </div>
   );

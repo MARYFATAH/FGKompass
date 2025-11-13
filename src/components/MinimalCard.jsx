@@ -1,45 +1,58 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+/**
+ * 🌿 MinimalCard — elegant uniform-height category card (neutral theme)
+ */
 const MinimalCard = ({ title, description, icon: Icon, link }) => {
-  return (
-    <div className="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-200 hover:shadow-md hover:bg-gray-50 transition duration-300 max-w-sm mx-auto">
-      <div className="flex items-center space-x-4 mb-4">
-        {Icon && (
-          <div className="text-rose-400 p-2 border border-rose-400/50 rounded-lg flex-shrink-0 text-center">
-            <Icon className="h-6 w-6" aria-hidden="true" />
-          </div>
-        )}
-        <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
+  const content = (
+    <div
+      className="
+        bg-white/95 backdrop-blur-sm
+        rounded-2xl p-6 md:p-8
+        shadow-sm border border-gray-200
+        hover:border-gray-300 hover:shadow-md hover:scale-[1.02]
+        transition-all duration-300
+        flex flex-col justify-between
+        h-full min-h-[230px]
+        cursor-pointer
+      "
+    >
+      <div>
+        <div className="flex items-center space-x-4 mb-4">
+          {Icon && (
+            <div className="p-2 border border-gray-300/60 rounded-xl bg-gray-50 text-gray-700 flex-shrink-0">
+              <Icon className="h-6 w-6" aria-hidden="true" />
+            </div>
+          )}
+          <h3 className="text-lg md:text-xl font-semibold text-gray-800 tracking-wide">
+            {title}
+          </h3>
+        </div>
+
+        <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+          {description}
+        </p>
       </div>
 
-      <p className="text-base text-gray-500">{description}</p>
-
-      {link ? (
-        // If link starts with http -> external anchor, else a React Router Link
-        link.startsWith("http") ? (
-          <div className="mt-4">
-            <a
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-medium text-rose-500 hover:text-rose-600 transition duration-150"
-            >
-              Learn More →
-            </a>
-          </div>
-        ) : (
-          <div className="mt-4">
-            <Link
-              to={link}
-              className="text-sm font-medium text-rose-500 hover:text-rose-600 transition duration-150"
-            >
-              Learn More →
-            </Link>
-          </div>
-        )
-      ) : null}
+      <div className="mt-5">
+        <span className="inline-block text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors duration-150">
+          Learn More →
+        </span>
+      </div>
     </div>
+  );
+
+  if (!link) return content;
+
+  return link.startsWith("http") ? (
+    <a href={link} target="_blank" rel="noopener noreferrer" className="h-full">
+      {content}
+    </a>
+  ) : (
+    <Link to={link} className="h-full">
+      {content}
+    </Link>
   );
 };
 

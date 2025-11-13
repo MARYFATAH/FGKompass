@@ -19,6 +19,7 @@ import Nutrition from "./Pages/Wellness/Nutrition.jsx";
 import Recipe from "./Pages/Wellness/Recipe.jsx";
 import Sleep from "./Pages/Wellness/Sleep.jsx";
 import Post from "./Pages/Post.jsx";
+import CycleTracker from "./Pages/CycleTracker.jsx";
 
 // import Login from "./Login.jsx"; --- IGNORE ---
 // import Register from "./Register.jsx"; --- IGNORE ---
@@ -56,6 +57,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="wellness/recipe" element={<Recipe />} />
           <Route path="wellness/sleep" element={<Sleep />} />
           <Route path="/:slug" element={<Post />} />
+          <Route path="/tracker" element={<CycleTracker />} />
         </Route>
       </Routes>
     </BrowserRouter>
