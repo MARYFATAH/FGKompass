@@ -11,11 +11,11 @@ const articles = [
   },
   {
     title: "What Is the Best Temperature for Sleep?",
-    img: "https://images.unsplash.com/photo-1617331721429-85e509a65590?auto=format&fit=crop&w=800&q=80",
+    img: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=800&q=80",
   },
   {
     title: "How Many Hours of Sleep Do You Really Need?",
-    img: "https://images.unsplash.com/photo-1601972599720-bebd9c20c7ae?auto=format&fit=crop&w=800&q=80",
+    img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
   },
 ];
 

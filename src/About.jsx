@@ -8,7 +8,7 @@ export default function About() {
       <div className="absolute inset-0 bg-white/30 backdrop-blur-[1px]" />
 
       {/* 🌸 Main Content */}
-      <main className="relative z-10 flex-grow flex flex-col items-center text-center px-6 py-16 space-y-16">
+      <main className="relative z-10  flex-grow flex flex-col items-center text-center px-6 py-16 space-y-16">
         {/* 🌷 Hero Section */}
         <section>
           <h1 className="text-5xl font-bold mt-15 mb-4 text-slate-800 drop-shadow-sm">
