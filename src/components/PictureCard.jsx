@@ -11,7 +11,7 @@ import React, { useState } from "react";
  * @param {string} props.title - The main title of the card.
  * @param {string} props.description - The supporting descriptive text.
  */
-const MinimalPictureCard = ({ imageUrl, imageAlt, title, description }) => {
+const PictureCard = ({ imageUrl, imageAlt, title, description }) => {
   // State to track if the card is hovered, for dynamic styling
   const [isHovered, setIsHovered] = useState(false);
 
@@ -59,4 +59,4 @@ const MinimalPictureCard = ({ imageUrl, imageAlt, title, description }) => {
   );
 };
 
-export default MinimalPictureCard;
+export default PictureCard;
