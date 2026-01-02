@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { client } from "./sanity/client";
-import PictureCard from "./components/PictureCard";
-import MinimalCard from "./components/MinimalCard";
-import MoreOnTopic from "./components/MoreOnTopic";
+import PictureCard from "./Components/PictureCard";
+import MinimalCard from "./Components/MinimalCard";
+import MoreOnTopic from "./Components/MoreOnTopic";
 import womenImg from "./assets/strongwomen.jpg";
 
 export default function Home() {
