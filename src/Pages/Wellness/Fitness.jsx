@@ -1,4 +1,4 @@
-import HealthTopicPage from "../../Components/HealthTopicPage";
+import HealthTopicPage from "../../components/HealthTopicPage";
 
 export default function Fitness() {
   return (

@@ -1,4 +1,4 @@
-import HealthTopicPage from "../../Components/HealthTopicPage.jsx";
+import HealthTopicPage from "../../components/HealthTopicPage.jsx";
 
 export default function HeartDisease() {
   return (
