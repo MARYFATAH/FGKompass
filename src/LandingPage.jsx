@@ -19,16 +19,16 @@ export default function LandingPage() {
       {/* Centered content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
         <h1 className="text-5xl font-bold mb-4 drop-shadow-lg ">
-          <div className="mb-4">Frauen Gesundheit Kompass.</div>
+          <div className="mb-4">Women's Wellness Hub</div>
         </h1>
         <p className=" text-gray-600 text-xl mb-8 max-w-md m-4 ">
-          Dein Wegweiser zu ganzheitlicher Gesundheit und Wohlbefinden.
+          your holistic guide to women's health
         </p>
         <Link
           to="/home"
           className="transition-colors shadow-sm text-white font-semibold py-2 px-6 rounded-sm border border-white"
         >
-          Lass uns starten
+          Enter Site
         </Link>
       </div>
     </div>
