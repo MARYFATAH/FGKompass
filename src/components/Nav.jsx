@@ -17,14 +17,26 @@ export default function Nav() {
     <nav className="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* LOGO */}
+          {/* ================= LOGO (LIGHTNING) ================= */}
           <div className="flex items-center space-x-2">
+            <svg
+              className="h-8 w-8 text-rose-600"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M13 10V3L4 14h7v7l9-11h-7z"
+              />
+            </svg>
             <span className="text-xl font-bold text-rose-600">FG Kompass</span>
           </div>
 
           {/* ================= DESKTOP MENU ================= */}
           <div className="hidden sm:flex sm:space-x-8 items-center relative z-[9999]">
-            {/* Home */}
             <Link
               to="/home"
               className={`${baseLinkClasses} ${
@@ -53,20 +65,7 @@ export default function Nav() {
                 </svg>
               </button>
 
-              <ul
-                role="menu"
-                className="
-                  absolute left-0 top-full
-                  min-w-[180px]
-                  rounded-md
-                  border border-slate-200
-                  bg-white
-                  shadow-lg
-                  opacity-0 invisible
-                  group-hover:opacity-100 group-hover:visible
-                  transition-opacity duration-200
-                "
-              >
+              <ul className="absolute left-0 top-full min-w-[180px] rounded-md border border-slate-200 bg-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-200">
                 {[
                   { name: "Fitness", to: "/wellness/fitness" },
                   { name: "Nutrition", to: "/wellness/nutrition" },
@@ -76,7 +75,7 @@ export default function Nav() {
                   <li key={item.to}>
                     <Link
                       to={item.to}
-                      className="block p-3 text-sm text-slate-800 hover:bg-slate-100 rounded-md"
+                      className="block p-3 text-sm text-slate-800 hover:bg-rose-50 rounded-md"
                     >
                       {item.name}
                     </Link>
@@ -102,20 +101,7 @@ export default function Nav() {
                 </svg>
               </button>
 
-              <ul
-                role="menu"
-                className="
-                  absolute left-0 top-full
-                  min-w-[400px] grid grid-cols-2
-                  rounded-md
-                  border border-slate-200
-                  bg-white
-                  shadow-lg
-                  opacity-0 invisible
-                  group-hover:opacity-100 group-hover:visible
-                  transition-opacity duration-200
-                "
-              >
+              <ul className="absolute left-0 top-full min-w-[400px] grid grid-cols-2 rounded-md border border-slate-200 bg-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-200">
                 {[
                   { name: "Heart Disease", to: "/health/heart-disease" },
                   { name: "Breast Cancer", to: "/health/breast-cancer" },
@@ -129,7 +115,7 @@ export default function Nav() {
                   <li key={item.to}>
                     <Link
                       to={item.to}
-                      className="block p-3 text-sm text-slate-800 hover:bg-slate-100 rounded-md"
+                      className="block p-3 text-sm text-slate-800 hover:bg-rose-50 rounded-md"
                     >
                       {item.name}
                     </Link>
@@ -138,42 +124,63 @@ export default function Nav() {
               </ul>
             </div>
 
-            {/* Other links */}
             <Link
               to="/tracker"
-              className={`${baseLinkClasses} ${
-                isActive("/tracker")
-                  ? "text-black border-b-2 border-rose-400"
-                  : "text-gray-600 hover:border-b-2 hover:border-rose-400"
-              }`}
+              className={`${baseLinkClasses} text-gray-600 hover:border-b-2 hover:border-rose-400`}
             >
               Cycle Tracker
             </Link>
-
             <Link
               to="/about"
-              className={`${baseLinkClasses} ${
-                isActive("/about")
-                  ? "text-black border-b-2 border-rose-400"
-                  : "text-gray-600 hover:border-b-2 hover:border-rose-400"
-              }`}
+              className={`${baseLinkClasses} text-gray-600 hover:border-b-2 hover:border-rose-400`}
             >
               About Us
             </Link>
-
             <Link
               to="/contact"
-              className={`${baseLinkClasses} ${
-                isActive("/contact")
-                  ? "text-black border-b-2 border-rose-400"
-                  : "text-gray-600 hover:border-b-2 hover:border-rose-400"
-              }`}
+              className={`${baseLinkClasses} text-gray-600 hover:border-b-2 hover:border-rose-400`}
             >
               Contact Us
             </Link>
           </div>
 
-          {/* MOBILE BUTTON */}
+          {/* ================= SEARCH + NOTIFICATION ================= */}
+          <div className="hidden sm:flex items-center space-x-4">
+            {/* Search */}
+            <div className="relative">
+              <svg
+                className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+              <input
+                type="text"
+                placeholder="Search"
+                className="pl-9 pr-3 py-1.5 text-sm rounded-md border border-gray-300 hover:border-rose-400 focus:ring-2 focus:ring-rose-300 focus:border-rose-400 outline-none"
+              />
+            </div>
+
+            {/* Notification */}
+            <button className="p-2 rounded-full text-gray-500 hover:text-rose-600 hover:bg-rose-50 transition">
+              <svg
+                className="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M15 17h5l-1.4-1.4A2 2 0 0118 14.2V11a6 6 0 10-12 0v3.2a2 2 0 01-.6 1.4L4 17h5" />
+                <path d="M9 17v1a3 3 0 006 0v-1" />
+              </svg>
+            </button>
+          </div>
+
+          {/* ================= MOBILE BUTTON ================= */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="sm:hidden text-2xl text-gray-700"
@@ -187,69 +194,149 @@ export default function Nav() {
       {mobileOpen && (
         <div className="sm:hidden bg-white border-t border-gray-200">
           <div className="px-4 py-3 space-y-2">
-            <Link to="/home" className="block py-2">
+            {/* Home */}
+            <Link
+              to="/home"
+              onClick={() => setMobileOpen(false)}
+              className="block py-2 font-medium"
+            >
               Home
             </Link>
 
+            {/* Wellness */}
             <button
               onClick={() => setMobileWellness(!mobileWellness)}
-              className="w-full text-left py-2"
+              className="w-full text-left py-2 font-medium"
             >
               Wellness ▾
             </button>
 
             {mobileWellness && (
               <div className="pl-4 space-y-1">
-                <Link to="/wellness/fitness" className="block py-1">
+                <Link
+                  to="/wellness/fitness"
+                  onClick={() => setMobileOpen(false)}
+                  className="block py-1"
+                >
                   Fitness
                 </Link>
-                <Link to="/wellness/nutrition" className="block py-1">
+                <Link
+                  to="/wellness/nutrition"
+                  onClick={() => setMobileOpen(false)}
+                  className="block py-1"
+                >
                   Nutrition
                 </Link>
-                <Link to="/wellness/sleep" className="block py-1">
+                <Link
+                  to="/wellness/sleep"
+                  onClick={() => setMobileOpen(false)}
+                  className="block py-1"
+                >
                   Sleep
                 </Link>
-                <Link to="/wellness/recipe" className="block py-1">
+                <Link
+                  to="/wellness/recipe"
+                  onClick={() => setMobileOpen(false)}
+                  className="block py-1"
+                >
                   Recipe
                 </Link>
               </div>
             )}
 
+            {/* Health */}
             <button
               onClick={() => setMobileHealth(!mobileHealth)}
-              className="w-full text-left py-2"
+              className="w-full text-left py-2 font-medium"
             >
               Health Condition ▾
             </button>
 
             {mobileHealth && (
               <div className="pl-4 space-y-1">
-                <Link to="/health/heart-disease" className="block py-1">
+                <Link
+                  to="/health/heart-disease"
+                  onClick={() => setMobileOpen(false)}
+                  className="block py-1"
+                >
                   Heart Disease
                 </Link>
-                <Link to="/health/breast-cancer" className="block py-1">
+                <Link
+                  to="/health/breast-cancer"
+                  onClick={() => setMobileOpen(false)}
+                  className="block py-1"
+                >
                   Breast Cancer
                 </Link>
-                <Link to="/health/diabetes" className="block py-1">
+                <Link
+                  to="/health/diabetes"
+                  onClick={() => setMobileOpen(false)}
+                  className="block py-1"
+                >
                   Diabetes
                 </Link>
-                <Link to="/health/osteoporosis" className="block py-1">
+                <Link
+                  to="/health/osteoporosis"
+                  onClick={() => setMobileOpen(false)}
+                  className="block py-1"
+                >
                   Osteoporosis
                 </Link>
-                <Link to="/health/endometriosis" className="block py-1">
+                <Link
+                  to="/health/endometriosis"
+                  onClick={() => setMobileOpen(false)}
+                  className="block py-1"
+                >
                   Endometriosis
                 </Link>
-                <Link to="/health/maternal-health" className="block py-1">
+                <Link
+                  to="/health/maternal-health"
+                  onClick={() => setMobileOpen(false)}
+                  className="block py-1"
+                >
                   Maternal Health
                 </Link>
-                <Link to="/health/mental-health" className="block py-1">
+                <Link
+                  to="/health/mental-health"
+                  onClick={() => setMobileOpen(false)}
+                  className="block py-1"
+                >
                   Mental Health
                 </Link>
-                <Link to="/health/menopause" className="block py-1">
+                <Link
+                  to="/health/menopause"
+                  onClick={() => setMobileOpen(false)}
+                  className="block py-1"
+                >
                   Menopause
                 </Link>
               </div>
             )}
+
+            {/* Other links */}
+            <Link
+              to="/tracker"
+              onClick={() => setMobileOpen(false)}
+              className="block py-2 font-medium"
+            >
+              Cycle Tracker
+            </Link>
+
+            <Link
+              to="/about"
+              onClick={() => setMobileOpen(false)}
+              className="block py-2 font-medium"
+            >
+              About Us
+            </Link>
+
+            <Link
+              to="/contact"
+              onClick={() => setMobileOpen(false)}
+              className="block py-2 font-medium"
+            >
+              Contact Us
+            </Link>
           </div>
         </div>
       )}
