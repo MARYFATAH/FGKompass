@@ -23,12 +23,12 @@ export default function LandingPage() {
         <p className=" text-gray-600 text-xl mb-8 max-w-md m-4 ">
           Dein Wegweiser zu ganzheitlicher Gesundheit und Wohlbefinden.
         </p>
-        <a
-          href="/home"
+        <Link
+          to="/home"
           className="transition-colors shadow-sm text-white font-semibold py-2 px-6 rounded-sm border border-white"
         >
           Lass uns starten
-        </a>
+        </Link>
       </div>
     </div>
   );
