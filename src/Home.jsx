@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { client } from "./sanity/client";
 import PictureCard from "./components/PictureCard";
 import MinimalCard from "./components/MinimalCard";
@@ -7,121 +8,88 @@ import MoreOnTopic from "./components/MoreOnTopic";
 import womenImg from "./assets/strongwomen.jpg";
 
 export default function Home() {
+  const { t } = useTranslation();
   const [featured, setFeatured] = useState([]);
   const [error, setError] = useState(null);
 
-  // ✅ Fetch featured posts
   useEffect(() => {
     const query = `*[_type == "post" && featured == true && defined(slug.current)] 
-    | order(publishedAt desc)[0...6] {
-      _id,
-      title,
-      slug,
-      "imageUrl": image.asset->url,
-      publishedAt,
-      excerpt
-    }`;
+      | order(publishedAt desc)[0...6] {
+        _id,
+        title,
+        slug,
+        "imageUrl": image.asset->url,
+        publishedAt,
+        excerpt
+      }`;
 
     client
       .fetch(query)
-      .then((data) => setFeatured(data))
+      .then(setFeatured)
       .catch((err) => setError(err.message));
   }, []);
 
   return (
     <div className="relative min-h-screen font-montserrat flex flex-col overflow-hidden text-slate-800">
-      {/* 🌸 Elegant Background Layers */}
       <div className="absolute inset-0 bg-gradient-to-b from-rose-100 via-rose-200/70 to-rose-300/60" />
       <div className="absolute inset-0 bg-white/40 mix-blend-overlay" />
-
-      {/* 🌸 Decorative Side Borders */}
       <div className="absolute inset-y-0 left-[3%] right-[3%] border-x border-rose-300/50 pointer-events-none z-0" />
 
-      {/* 🌿 Main Content */}
       <main className="relative flex-grow flex flex-col items-center text-center px-6 py-20 space-y-24 z-10">
-        {/* 🌷 Hero Section */}
+        {/* Hero */}
         <div className="w-full max-w-6xl mx-auto">
           <PictureCard
-            title="Holistic Health at Your Fingertips"
-            description="Explore mindful living, nourishment, and strength through every stage of life."
+            title={t("home.heroTitle")}
+            description={t("home.heroDescription")}
             imageUrl={womenImg}
             imageAlt="Group of women smiling outdoors"
           />
 
-          {/* ✨ Tagline */}
-          <p className="mt-10 text-xl md:text-2xl text-slate-700 font-semibold italic max-w-3xl mx-auto leading-relaxed">
-            “Balance isn’t something you find — it’s something you create.”
+          <p className="mt-10 text-xl md:text-2xl text-slate-700 font-semibold italic max-w-3xl mx-auto">
+            “{t("home.tagline")}”
           </p>
 
-          {/* 🌿 Brand Statement */}
-          <p className="mt-4 text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed tracking-wide">
-            FG Kompass guides you through every aspect of women’s wellness —
-            helping you connect, restore, and thrive through holistic insights
-            and practical knowledge.
+          <p className="mt-4 text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
+            {t("home.brand")}
           </p>
         </div>
 
-        {/* 🌟 Featured Articles */}
+        {/* Featured */}
         <section className="w-full max-w-6xl text-left space-y-10">
-          <h2 className="text-3xl font-bold text-slate-800 border-b-2 border-rose-200 pb-3">
-            Featured Articles
+          <h2 className="text-3xl font-bold border-b-2 border-rose-200 pb-3">
+            {t("home.featuredTitle")}
           </h2>
 
           {error ? (
             <p className="text-red-500">{error}</p>
           ) : featured.length === 0 ? (
-            <p className="text-slate-600 text-lg">No featured articles yet.</p>
+            <p className="text-slate-600">{t("home.noArticles")}</p>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
               {featured.map((post) => (
                 <article
                   key={post._id}
-                  className="
-                    bg-white/95 
-                    backdrop-blur-sm 
-                    rounded-2xl 
-                    shadow-sm 
-                    hover:shadow-xl 
-                    overflow-hidden 
-                    border border-gray-200
-                    transition-all duration-300 
-                    transform hover:-translate-y-1
-                  "
+                  className="bg-white rounded-2xl shadow-sm overflow-hidden"
                 >
                   <img
-                    src={
-                      post.imageUrl ||
-                      "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80"
-                    }
+                    src={post.imageUrl}
                     alt={post.title}
                     className="w-full h-56 object-cover"
                   />
 
-                  <div className="p-6 flex flex-col justify-between h-[250px]">
+                  <div className="p-6 h-[250px] flex flex-col justify-between">
                     <div>
-                      <h3 className="text-xl font-semibold text-slate-800 mb-3 leading-snug">
+                      <h3 className="text-xl font-semibold mb-3">
                         {post.title}
                       </h3>
-                      <p className="text-sm text-slate-600 leading-relaxed line-clamp-3">
-                        {post.excerpt ||
-                          "Explore the latest insights and research on holistic wellness."}
-                      </p>
+                      <p className="text-sm line-clamp-3">{post.excerpt}</p>
                     </div>
 
                     <Link
                       to={`/${post.slug.current}`}
-                      className="
-                        self-start mt-5 
-                        bg-slate-700 
-                        text-white 
-                        px-5 py-2 
-                        rounded-md 
-                        text-sm font-medium 
-                        hover:bg-slate-900 
-                        transition-colors
-                      "
+                      className="mt-5 bg-slate-700 text-white px-5 py-2 rounded-md text-sm hover:bg-slate-900"
                     >
-                      Read More
+                      {t("home.readMore")}
                     </Link>
                   </div>
                 </article>
@@ -130,58 +98,56 @@ export default function Home() {
           )}
         </section>
 
-        {/* 💫 Explore by Section */}
+        {/* Explore */}
         <section className="w-full max-w-6xl text-left space-y-10">
-          <h2 className="text-3xl font-bold text-slate-800 border-b-2 border-rose-200 pb-3">
-            Explore by
+          <h2 className="text-3xl font-bold border-b-2 border-rose-200 pb-3">
+            {t("home.exploreTitle")}
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 items-stretch">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             <MinimalCard
-              title="Nutrition"
-              description="Nourish your body with mindful eating."
+              title={t("home.cards.nutrition.title")}
+              description={t("home.cards.nutrition.desc")}
               link="/wellness/nutrition"
             />
             <MinimalCard
-              title="Fitness"
-              description="Move with strength and grace."
+              title={t("home.cards.fitness.title")}
+              description={t("home.cards.fitness.desc")}
               link="/wellness/fitness"
             />
             <MinimalCard
-              title="Mental Health"
-              description="Cultivate calm and emotional balance."
+              title={t("home.cards.mental.title")}
+              description={t("home.cards.mental.desc")}
               link="/health/mental-health"
             />
             <MinimalCard
-              title="Recipes"
-              description="Wholesome, beautiful, and easy to make."
+              title={t("home.cards.recipes.title")}
+              description={t("home.cards.recipes.desc")}
               link="/wellness/recipe"
             />
             <MinimalCard
-              title="Pregnancy"
-              description="Guidance for every stage of motherhood."
+              title={t("home.cards.pregnancy.title")}
+              description={t("home.cards.pregnancy.desc")}
               link="/health/maternal-health"
             />
           </div>
         </section>
 
-        {/* 📚 More on Topic */}
+        {/* More */}
         <section className="w-full max-w-6xl text-left space-y-10">
-          <h2 className="text-3xl font-bold text-slate-800 border-b-2 border-rose-200 pb-3">
-            More on Topic
+          <h2 className="text-3xl font-bold border-b-2 border-rose-200 pb-3">
+            {t("home.moreOnTopic")}
           </h2>
           <MoreOnTopic />
         </section>
 
-        {/* 🌸 Call to Action */}
-        <div className="flex items-center justify-center">
-          <a
-            href="/about"
-            className="transition-colors shadow-md text-white font-semibold py-3 px-10 rounded-lg bg-slate-600 hover:bg-slate-700 text-lg tracking-wide"
-          >
-            Learn More
-          </a>
-        </div>
+        {/* CTA */}
+        <a
+          href="/about"
+          className="bg-slate-600 text-white px-10 py-3 rounded-lg hover:bg-slate-700"
+        >
+          {t("home.cta")}
+        </a>
       </main>
     </div>
   );

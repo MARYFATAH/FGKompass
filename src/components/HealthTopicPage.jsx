@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { client } from "../sanity/client";
+import { useTranslation } from "react-i18next";
 
 export default function HealthTopicPage({
   title,
-  slug, // e.g. "diabetes", "hearthealth"
+  slug,
   heroImage,
-  introTitle = "What You Should Know",
+  introTitle,
   introText,
   tips = [],
 }) {
+  const { t, i18n } = useTranslation();
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState(null);
 
@@ -29,19 +31,17 @@ export default function HealthTopicPage({
   useEffect(() => {
     client
       .fetch(POSTS_QUERY)
-      .then((data) => setPosts(data))
-      .catch((err) => {
-        console.error("Error fetching posts:", err);
-        setError(err.message);
-      });
+      .then(setPosts)
+      .catch((err) => setError(err.message));
   }, [slug]);
 
-  if (error)
+  if (error) {
     return <p className="text-red-500 text-center mt-8">Error: {error}</p>;
+  }
 
   return (
     <div className="relative min-h-screen w-full font-montserrat bg-gradient-to-b from-rose-50 to-white text-gray-800">
-      {/* 🌸 Hero Section */}
+      {/* 🌸 Hero */}
       <section className="relative py-24 text-center text-white overflow-hidden">
         <img
           src={heroImage}
@@ -51,66 +51,64 @@ export default function HealthTopicPage({
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-transparent" />
 
         <div className="relative z-10 max-w-3xl mx-auto px-6">
-          <h1 className="text-5xl sm:text-6xl font-extrabold mb-5 drop-shadow-lg tracking-tight">
-            {title}
-          </h1>
-          <p className="text-lg sm:text-xl text-rose-50/90 leading-relaxed font-light">
-            {introText}
-          </p>
+          <h1 className="text-5xl sm:text-6xl font-extrabold mb-5">{title}</h1>
+          <p className="text-lg sm:text-xl text-rose-50/90">{introText}</p>
         </div>
       </section>
 
-      {/* 🌿 Intro Section */}
+      {/* 🌿 Intro */}
       <section className="max-w-4xl mx-auto px-6 py-20 text-center space-y-6">
-        <h2 className="text-3xl font-semibold text-rose-600">{introTitle}</h2>
-        <p className="text-gray-700 leading-relaxed text-base sm:text-lg max-w-2xl mx-auto">
-          {introText}
-        </p>
+        <h2 className="text-3xl font-semibold text-rose-600">
+          {introTitle || t("healthTopic.introTitle")}
+        </h2>
+        <p className="text-gray-700 max-w-2xl mx-auto">{introText}</p>
       </section>
 
-      {/* 📰 Articles Section */}
+      {/* 📰 Articles */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <h2 className="text-3xl font-semibold text-center text-rose-600 mb-12">
-          Featured Articles
+          {t("healthTopic.featuredArticles")}
         </h2>
 
         {posts.length === 0 ? (
           <p className="text-center text-gray-600 text-lg">
-            No articles available for this topic yet.
+            {t("healthTopic.noArticles")}
           </p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 items-stretch">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             {posts.map((post) => (
               <article
                 key={post._id}
-                className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-sm border border-rose-100 hover:border-rose-200 hover:shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1 flex flex-col justify-between"
+                className="bg-white rounded-2xl shadow-sm border hover:shadow-lg transition flex flex-col"
               >
                 <img
-                  src={
-                    post.imageUrl ||
-                    "https://images.unsplash.com/photo-1590935217281-8b16ad3d5a70?auto=format&fit=crop&w=800&q=80"
-                  }
+                  src={post.imageUrl}
                   alt={post.title}
                   className="w-full h-56 object-cover"
                 />
+
                 <div className="p-6 flex flex-col justify-between flex-grow">
                   <div>
-                    <h3 className="text-xl font-semibold text-rose-600 mb-1">
+                    <h3 className="text-xl font-semibold text-rose-600">
                       {post.title}
                     </h3>
+
                     <p className="text-sm text-gray-500 mb-3">
-                      {new Date(post.publishedAt).toLocaleDateString("en-US")}
+                      {new Date(post.publishedAt).toLocaleDateString(
+                        i18n.language === "de" ? "de-DE" : "en-US"
+                      )}
                     </p>
-                    <p className="text-gray-700 text-sm line-clamp-3 leading-relaxed">
-                      {post.excerpt ||
-                        "Explore the latest insights and research on holistic wellness."}
+
+                    <p className="text-gray-700 text-sm line-clamp-3">
+                      {post.excerpt || t("healthTopic.defaultExcerpt")}
                     </p>
                   </div>
+
                   <Link
                     to={`/${post.slug.current}`}
-                    className="self-start mt-4 bg-rose-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-rose-600 transition"
+                    className="self-start mt-4 bg-rose-500 text-white px-4 py-2 rounded-md text-sm hover:bg-rose-600"
                   >
-                    Read More
+                    {t("healthTopic.readMore")}
                   </Link>
                 </div>
               </article>
@@ -119,17 +117,15 @@ export default function HealthTopicPage({
         )}
       </section>
 
-      {/* 💡 Tips Section */}
+      {/* 💡 Tips */}
       {tips.length > 0 && (
-        <section className="max-w-4xl mx-auto px-6 py-16 bg-gradient-to-b from-rose-100 to-rose-50 border border-rose-200 rounded-2xl shadow-sm mb-24 text-center sm:text-left">
-          <h3 className="text-2xl font-semibold text-rose-600 mb-6 text-center sm:text-left">
-            Helpful Tips
+        <section className="max-w-4xl mx-auto px-6 py-16 bg-rose-50 border rounded-2xl mb-24">
+          <h3 className="text-2xl font-semibold text-rose-600 mb-6">
+            {t("healthTopic.helpfulTips")}
           </h3>
-          <ul className="list-disc list-inside text-gray-700 space-y-3">
+          <ul className="list-disc list-inside space-y-3 text-gray-700">
             {tips.map((tip, i) => (
-              <li key={i} className="leading-relaxed">
-                {tip}
-              </li>
+              <li key={i}>{tip}</li>
             ))}
           </ul>
         </section>

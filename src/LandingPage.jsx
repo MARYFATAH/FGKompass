@@ -1,8 +1,10 @@
 import React from "react";
 import bgImage from "./assets/landingpage_bg.jpg";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function LandingPage() {
+  const { t } = useTranslation();
   return (
     <div className=" relative h-screen w-full font-montserrat">
       {/* Background image with rose gradient overlay */}
@@ -19,16 +21,16 @@ export default function LandingPage() {
       {/* Centered content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
         <h1 className="text-5xl font-bold mb-4 drop-shadow-lg ">
-          <div className="mb-4">Women's Wellness Hub</div>
+          <div className="mb-4">{t("landing.title")}</div>
         </h1>
         <p className=" text-gray-600 text-xl mb-8 max-w-md m-4 ">
-          your holistic guide to women's health
+          {t("landing.subtitle")}
         </p>
         <Link
           to="/home"
           className="transition-colors shadow-sm text-white font-semibold py-2 px-6 rounded-sm border border-white"
         >
-          Enter Site
+          {t("landing.start")}
         </Link>
       </div>
     </div>

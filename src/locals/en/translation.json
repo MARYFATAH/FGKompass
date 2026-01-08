@@ -1,0 +1,84 @@
+{
+  "nav": {
+    "home": "Home",
+    "wellness": "Wellness",
+    "health": "Health Condition",
+    "tracker": "Cycle Tracker",
+    "about": "About Us",
+    "contact": "Contact Us"
+  },
+  "landing": {
+    "title": "Women's Health Compass",
+    "subtitle": "Your guide to holistic health and wellbeing",
+    "start": "Let's start"
+  },
+  "explore": {
+    "title": "Explore By",
+    "viewAll": "View All →",
+    "categories": {
+      "nutrition": "Nutrition",
+      "sleep": "Sleep",
+      "mental": "Mental Health",
+      "fitness": "Fitness",
+      "reviews": "Product Reviews"
+    }
+  },
+
+  "home": {
+    "heroTitle": "Holistic Health at Your Fingertips",
+    "heroDescription": "Explore mindful living, nourishment, and strength through every stage of life.",
+    "tagline": "Balance isn’t something you find — it’s something you create.",
+    "brand": "FG Kompass guides you through every aspect of women’s wellness — helping you connect, restore, and thrive through holistic insights and practical knowledge.",
+
+    "featuredTitle": "Featured Articles",
+    "noArticles": "No featured articles yet.",
+    "readMore": "Read More",
+
+    "exploreTitle": "Explore by",
+
+    "cards": {
+      "nutrition": {
+        "title": "Nutrition",
+        "desc": "Nourish your body with mindful eating."
+      },
+      "fitness": {
+        "title": "Fitness",
+        "desc": "Move with strength and grace."
+      },
+      "mental": {
+        "title": "Mental Health",
+        "desc": "Cultivate calm and emotional balance."
+      },
+      "recipes": {
+        "title": "Recipes",
+        "desc": "Wholesome, beautiful, and easy to make."
+      },
+      "pregnancy": {
+        "title": "Pregnancy",
+        "desc": "Guidance for every stage of motherhood."
+      }
+    },
+
+    "moreOnTopic": "More on Topic",
+    "cta": "Learn More"
+  },
+
+  "footer": {
+    "brand": "Woman Cycle Tracker",
+    "links": {
+      "home": "Home",
+      "about": "About",
+      "contact": "Contact",
+      "privacy": "Privacy"
+    },
+    "rights": "All rights reserved."
+  },
+  "healthTopic": {
+    "introTitle": "What You Should Know",
+    "featuredArticles": "Featured Articles",
+    "noArticles": "No articles available for this topic yet.",
+    "readMore": "Read More",
+    "helpfulTips": "Helpful Tips",
+    "defaultExcerpt": "Explore the latest insights and research on holistic wellness."
+  }
+}

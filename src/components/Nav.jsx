@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function Nav() {
   const location = useLocation();
+  const { t, i18n } = useTranslation();
 
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileWellness, setMobileWellness] = useState(false);
@@ -34,7 +36,26 @@ export default function Nav() {
             </svg>
             <span className="text-xl font-bold text-rose-600">FG Kompass</span>
           </div>
+          {/* ================= LANGUAGE SWITCHER ================= */}
+          <div className="flex gap-2 text-sm">
+            <button
+              onClick={() => {
+                i18n.changeLanguage("de");
+                localStorage.setItem("lang", "de");
+              }}
+            >
+              DE
+            </button>
 
+            <button
+              onClick={() => {
+                i18n.changeLanguage("en");
+                localStorage.setItem("lang", "en");
+              }}
+            >
+              EN
+            </button>
+          </div>
           {/* ================= DESKTOP MENU ================= */}
           <div className="hidden sm:flex sm:space-x-8 items-center relative z-[9999]">
             <Link
@@ -44,8 +65,9 @@ export default function Nav() {
                   ? "text-black border-b-2 border-rose-400"
                   : "text-gray-600 hover:border-b-2 hover:border-rose-400"
               }`}
+              aria-current={isActive("/home") ? "page" : undefined}
             >
-              Home
+              {t("nav.home")}
             </Link>
 
             {/* Wellness */}
@@ -53,7 +75,7 @@ export default function Nav() {
               <button
                 className={`${baseLinkClasses} text-gray-600 flex items-center`}
               >
-                Wellness
+                {t("nav.wellness")}
                 <svg
                   className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180"
                   fill="none"
@@ -89,7 +111,7 @@ export default function Nav() {
               <button
                 className={`${baseLinkClasses} text-gray-600 flex items-center`}
               >
-                Health Condition
+                {t("nav.health")}
                 <svg
                   className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180"
                   fill="none"
@@ -128,22 +150,21 @@ export default function Nav() {
               to="/tracker"
               className={`${baseLinkClasses} text-gray-600 hover:border-b-2 hover:border-rose-400`}
             >
-              Cycle Tracker
+              {t("nav.tracker")}
             </Link>
             <Link
               to="/about"
               className={`${baseLinkClasses} text-gray-600 hover:border-b-2 hover:border-rose-400`}
             >
-              About Us
+              {t("nav.about")}
             </Link>
             <Link
               to="/contact"
               className={`${baseLinkClasses} text-gray-600 hover:border-b-2 hover:border-rose-400`}
             >
-              Contact Us
+              {t("nav.contact")}
             </Link>
           </div>
-
           {/* ================= SEARCH + NOTIFICATION ================= */}
           <div className="hidden sm:flex items-center space-x-4">
             {/* Search */}
@@ -179,7 +200,6 @@ export default function Nav() {
               </svg>
             </button>
           </div>
-
           {/* ================= MOBILE BUTTON ================= */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}

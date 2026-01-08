@@ -20,6 +20,7 @@ import Recipe from "./Pages/Wellness/Recipe.jsx";
 import Sleep from "./Pages/Wellness/Sleep.jsx";
 import Post from "./Pages/Post.jsx";
 import CycleTracker from "./Pages/CycleTracker.jsx";
+import "./i18n";
 
 // import Login from "./Login.jsx"; --- IGNORE ---
 // import Register from "./Register.jsx"; --- IGNORE ---

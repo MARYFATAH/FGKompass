@@ -1,0 +1,85 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "wellness": "Wellness",
+    "health": "Gesundheit",
+    "tracker": "Zyklus-Tracker",
+    "about": "Über uns",
+    "contact": "Kontakt"
+  },
+  "landing": {
+    "title": "Frauen Gesundheitskompass",
+    "subtitle": "Dein Wegweiser zu ganzheitlicher Gesundheit",
+    "start": "Los geht's"
+  },
+
+  "explore": {
+    "title": "Entdecken nach",
+    "viewAll": "Alle anzeigen →",
+    "categories": {
+      "nutrition": "Ernährung",
+      "sleep": "Schlaf",
+      "mental": "Mentale Gesundheit",
+      "fitness": "Fitness",
+      "reviews": "Produktbewertungen"
+    }
+  },
+
+  "home": {
+    "heroTitle": "Ganzheitliche Gesundheit zum Greifen nah",
+    "heroDescription": "Entdecke achtsames Leben, Ernährung und Stärke in jeder Lebensphase.",
+    "tagline": "Balance ist nichts, was man findet – sie ist etwas, das man erschafft.",
+    "brand": "FG Kompass begleitet dich durch alle Aspekte der Frauengesundheit – mit ganzheitlichen Impulsen und praktischem Wissen.",
+
+    "featuredTitle": "Empfohlene Artikel",
+    "noArticles": "Noch keine empfohlenen Artikel vorhanden.",
+    "readMore": "Mehr lesen",
+
+    "exploreTitle": "Entdecken nach",
+
+    "cards": {
+      "nutrition": {
+        "title": "Ernährung",
+        "desc": "Stärke deinen Körper durch bewusste Ernährung."
+      },
+      "fitness": {
+        "title": "Fitness",
+        "desc": "Bewege dich mit Kraft und Leichtigkeit."
+      },
+      "mental": {
+        "title": "Mentale Gesundheit",
+        "desc": "Finde innere Ruhe und emotionale Balance."
+      },
+      "recipes": {
+        "title": "Rezepte",
+        "desc": "Gesund, schön und einfach zuzubereiten."
+      },
+      "pregnancy": {
+        "title": "Schwangerschaft",
+        "desc": "Begleitung durch jede Phase der Mutterschaft."
+      }
+    },
+
+    "moreOnTopic": "Mehr zum Thema",
+    "cta": "Mehr erfahren"
+  },
+
+  "footer": {
+    "brand": "Zyklus-Tracker für Frauen",
+    "links": {
+      "home": "Startseite",
+      "about": "Über uns",
+      "contact": "Kontakt",
+      "privacy": "Datenschutz"
+    },
+    "rights": "Alle Rechte vorbehalten."
+  },
+  "healthTopic": {
+    "introTitle": "Was Sie wissen sollten",
+    "featuredArticles": "Ausgewählte Artikel",
+    "noArticles": "Zu diesem Thema sind derzeit keine Artikel verfügbar.",
+    "readMore": "Weiterlesen",
+    "helpfulTips": "Hilfreiche Tipps",
+    "defaultExcerpt": "Entdecken Sie aktuelle Erkenntnisse und Forschung zur ganzheitlichen Gesundheit."
+  }
+}
