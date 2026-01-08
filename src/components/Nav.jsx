@@ -9,6 +9,12 @@ export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileWellness, setMobileWellness] = useState(false);
   const [mobileHealth, setMobileHealth] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const changeLang = (lang) => {
+    i18n.changeLanguage(lang);
+    setOpen(false);
+  };
 
   const isActive = (path) => location.pathname === path;
 
@@ -36,26 +42,7 @@ export default function Nav() {
             </svg>
             <span className="text-xl font-bold text-rose-600">FG Kompass</span>
           </div>
-          {/* ================= LANGUAGE SWITCHER ================= */}
-          <div className="flex gap-2 text-sm">
-            <button
-              onClick={() => {
-                i18n.changeLanguage("de");
-                localStorage.setItem("lang", "de");
-              }}
-            >
-              DE
-            </button>
 
-            <button
-              onClick={() => {
-                i18n.changeLanguage("en");
-                localStorage.setItem("lang", "en");
-              }}
-            >
-              EN
-            </button>
-          </div>
           {/* ================= DESKTOP MENU ================= */}
           <div className="hidden sm:flex sm:space-x-8 items-center relative z-[9999]">
             <Link
@@ -89,10 +76,10 @@ export default function Nav() {
 
               <ul className="absolute left-0 top-full min-w-[180px] rounded-md border border-slate-200 bg-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-200">
                 {[
-                  { name: "Fitness", to: "/wellness/fitness" },
-                  { name: "Nutrition", to: "/wellness/nutrition" },
-                  { name: "Sleep", to: "/wellness/sleep" },
-                  { name: "Recipe", to: "/wellness/recipe" },
+                  { name: t("nav.fitness"), to: "/wellness/fitness" },
+                  { name: t("nav.nutrition"), to: "/wellness/nutrition" },
+                  { name: t("nav.sleep"), to: "/wellness/sleep" },
+                  { name: t("nav.recipes"), to: "/wellness/recipe" },
                 ].map((item) => (
                   <li key={item.to}>
                     <Link
@@ -126,13 +113,16 @@ export default function Nav() {
               <ul className="absolute left-0 top-full min-w-[400px] grid grid-cols-2 rounded-md border border-slate-200 bg-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-200">
                 {[
                   { name: t("nav.heartDisease"), to: "/health/heart-disease" },
-                  { name: "Breast Cancer", to: "/health/breast-cancer" },
-                  { name: "Diabetes", to: "/health/diabetes" },
-                  { name: "Osteoporosis", to: "/health/osteoporosis" },
-                  { name: "Endometriosis", to: "/health/endometriosis" },
-                  { name: "Maternal Health", to: "/health/maternal-health" },
-                  { name: "Mental Health", to: "/health/mental-health" },
-                  { name: "Menopause", to: "/health/menopause" },
+                  { name: t("nav.breastCancer"), to: "/health/breast-cancer" },
+                  { name: t("nav.diabetes"), to: "/health/diabetes" },
+                  { name: t("nav.osteoporosis"), to: "/health/osteoporosis" },
+                  {
+                    name: t("nav.endrometriosis"),
+                    to: "/health/endrometriosis",
+                  },
+                  { name: t("nav.maternity"), to: "/health/maternity" },
+                  { name: t("nav.mentalHealth"), to: "/health/mental-health" },
+                  { name: t("nav.menopause"), to: "/health/menopause" },
                 ].map((item) => (
                   <li key={item.to}>
                     <Link
@@ -199,6 +189,57 @@ export default function Nav() {
                 <path d="M9 17v1a3 3 0 006 0v-1" />
               </svg>
             </button>
+
+            {/* ================= LANGUAGE SWITCHER ================= */}
+            <div className="relative text-sm">
+              {/* Button */}
+              <button
+                onClick={() => setOpen(!open)}
+                className="
+      flex items-center gap-2
+      bg-white/70 backdrop-blur-md
+      border border-gray-200
+      rounded-md
+      px-4 py-2
+      text-rose-700 font-medium
+      shadow-sm
+      hover:bg-white
+      focus:outline-none focus:ring-2 focus:ring-rose-300
+      transition
+    "
+              >
+                {i18n.language.toUpperCase()}
+                <span className="text-xs">▾</span>
+              </button>
+
+              {/* Dropdown */}
+              {open && (
+                <div
+                  className="
+        absolute right-0 mt-2 w-32
+        bg-white rounded-xl
+        shadow-lg border border-rose-100
+        overflow-hidden
+        animate-fade-in
+        z-50
+      "
+                >
+                  <button
+                    onClick={() => changeLang("de")}
+                    className="w-full px-4 py-2 text-left hover:bg-rose-50 transition"
+                  >
+                    🇩🇪 Deutsch
+                  </button>
+
+                  <button
+                    onClick={() => changeLang("en")}
+                    className="w-full px-4 py-2 text-left hover:bg-rose-50 transition"
+                  >
+                    🇬🇧 English
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
           {/* ================= MOBILE BUTTON ================= */}
           <button

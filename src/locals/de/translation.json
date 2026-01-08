@@ -16,7 +16,10 @@
     "recipes": "Rezepte",
     "breastCancer": "Brustkrebs",
     "diabetes": "Diabetes",
-    "menopause": "Wechseljahre"
+    "menopause": "Menopause",
+    "endrometriosis": "Endometriose",
+    "maternity": "Mutterschaft",
+    "osteoporosis": "Osteoporose"
   },
   "landing": {
     "title": "Frauen Gesundheitskompass",

@@ -5,7 +5,21 @@
     "health": "Health Condition",
     "tracker": "Cycle Tracker",
     "about": "About Us",
-    "contact": "Contact Us"
+    "contact": "Contact Us",
+    "heartDisease": "Heart Disease",
+    "pregnancy": "Pregnancy",
+    "nutrition": "Nutrition",
+    "fitness": "Fitness",
+    "mentalHealth": "Mental Health",
+    "sleep": "Sleep",
+    "reviews": "Product Reviews",
+    "recipes": "Recipes",
+    "breastCancer": "Breast Cancer",
+    "diabetes": "Diabetes",
+    "menopause": "Menopause",
+    "Endrometriosis": "Endrometriosis",
+    "Maternity": "Maternity",
+    "Osteoporosis": "Osteoporosis"
   },
   "landing": {
     "title": "Women's Health Compass",
