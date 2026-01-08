@@ -125,7 +125,7 @@ export default function Nav() {
 
               <ul className="absolute left-0 top-full min-w-[400px] grid grid-cols-2 rounded-md border border-slate-200 bg-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-200">
                 {[
-                  { name: "Heart Disease", to: "/health/heart-disease" },
+                  { name: t("nav.heartDisease"), to: "/health/heart-disease" },
                   { name: "Breast Cancer", to: "/health/breast-cancer" },
                   { name: "Diabetes", to: "/health/diabetes" },
                   { name: "Osteoporosis", to: "/health/osteoporosis" },

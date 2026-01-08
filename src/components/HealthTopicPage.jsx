@@ -79,12 +79,12 @@ export default function HealthTopicPage({
             {posts.map((post) => (
               <article
                 key={post._id}
-                className="bg-white rounded-2xl shadow-sm border hover:shadow-lg transition flex flex-col"
+                className="bg-white rounded-2xl shadow-sm  hover:shadow-lg transition flex flex-col"
               >
                 <img
                   src={post.imageUrl}
                   alt={post.title}
-                  className="w-full h-56 object-cover"
+                  className="w-full h-56 object-cover rounded-t-2xl"
                 />
 
                 <div className="p-6 flex flex-col justify-between flex-grow">
@@ -119,7 +119,7 @@ export default function HealthTopicPage({
 
       {/* 💡 Tips */}
       {tips.length > 0 && (
-        <section className="max-w-4xl mx-auto px-6 py-16 bg-rose-50 border rounded-2xl mb-24">
+        <section className="max-w-6xl mx-auto px-6 py-16 bg-rose-50 shadow shadow-rose-100 rounded-2xl mb-24">
           <h3 className="text-2xl font-semibold text-rose-600 mb-6">
             {t("healthTopic.helpfulTips")}
           </h3>

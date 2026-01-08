@@ -5,7 +5,18 @@
     "health": "Gesundheit",
     "tracker": "Zyklus-Tracker",
     "about": "Über uns",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "heartDisease": "Herzkrankheiten",
+    "pregnancy": "Schwangerschaft",
+    "nutrition": "Ernährung",
+    "fitness": "Fitness",
+    "mentalHealth": "Mentale Gesundheit",
+    "sleep": "Schlaf",
+    "reviews": "Produktbewertungen",
+    "recipes": "Rezepte",
+    "breastCancer": "Brustkrebs",
+    "diabetes": "Diabetes",
+    "menopause": "Wechseljahre"
   },
   "landing": {
     "title": "Frauen Gesundheitskompass",
