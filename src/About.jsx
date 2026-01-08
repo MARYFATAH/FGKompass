@@ -1,4 +1,7 @@
+import { useTranslation } from "react-i18next";
+
 export default function About() {
+  const { t } = useTranslation();
   return (
     <div className="relative min-h-screen w-full font-montserrat flex flex-col overflow-hidden bg-gradient-to-b from-rose-100 via-rose-200/70 to-rose-300/50">
       {/* 🌿 Elegant Side Borders */}
@@ -12,11 +15,10 @@ export default function About() {
         {/* 🌷 Hero Section */}
         <section>
           <h1 className="text-5xl font-bold mt-15 mb-4 text-slate-800 drop-shadow-sm">
-            About Us
+            {t("about.title")}
           </h1>
           <p className="text-lg text-slate-700 max-w-2xl mx-auto leading-relaxed">
-            Learn more about our mission, our story, and our passion for
-            holistic wellness — guiding women to balance mind, body, and life.
+            {t("about.description")}
           </p>
         </section>
 
@@ -26,36 +28,30 @@ export default function About() {
           <div className="text-left space-y-6 text-gray-800">
             <div>
               <h2 className="text-2xl font-semibold text-slate-900 mb-2">
-                Our Mission
+                {t("about.mission")}
               </h2>
               <p className="text-gray-700 leading-relaxed">
-                At <strong>FG Kompass</strong>, our mission is to empower women
-                to take charge of their health through holistic, evidence-based
-                practices. We believe wellness is a lifelong journey — one that
-                flourishes when body, mind, and spirit are in harmony.
+                {t("about.missionText")}
               </p>
             </div>
 
             <div>
               <h2 className="text-2xl font-semibold text-slate-900 mb-2">
-                Our Story
+                {t("about.history")}
               </h2>
               <p className="text-gray-700 leading-relaxed">
-                Founded in 2021 by a passionate team of health enthusiasts, we
-                began as a small initiative to make wellness education
-                accessible to all. Today, FG Kompass is a trusted digital guide
-                for thousands seeking balance, strength, and knowledge.
+                {t("about.storyText")}
               </p>
             </div>
 
             <div>
               <h2 className="text-2xl font-semibold text-slate-900 mb-2">
-                Why Choose Us
+                {t("about.values")}
               </h2>
               <ul className="list-disc list-inside space-y-2 text-gray-700">
-                <li>Science-backed, easy-to-understand insights</li>
-                <li>Authentic guidance from experienced health experts</li>
-                <li>A compassionate community built on empowerment</li>
+                <li>{t("about.value1")}</li>
+                <li>{t("about.value2")}</li>
+                <li>{t("about.value3")}</li>
               </ul>
             </div>
           </div>
@@ -76,7 +72,7 @@ export default function About() {
             href="/contact"
             className="bg-slate-800 text-white px-8 py-3 rounded-md text-lg font-medium shadow-sm hover:bg-slate-900 transition-all duration-200"
           >
-            Get in Touch
+            {t("about.contactUs")}
           </a>
         </section>
       </main>

@@ -1,4 +1,8 @@
+import { useTranslation } from "react-i18next";
+
 export default function Contact() {
+  const { t } = useTranslation();
+
   return (
     <div className="relative min-h-screen w-full font-montserrat flex flex-col overflow-hidden bg-gradient-to-b from-rose-100 via-rose-200/70 to-rose-300/50">
       {/* 🌿 Elegant Side Borders */}
@@ -12,11 +16,10 @@ export default function Contact() {
         {/* 🌷 Hero Section */}
         <section>
           <h1 className="text-5xl font-bold mt-15 mb-4 text-slate-800 drop-shadow-sm">
-            Contact Us
+            {t("contact.contactUs")}
           </h1>
           <p className="text-lg text-slate-700 max-w-2xl mx-auto leading-relaxed">
-            We’d love to hear from you! Send us a message and we’ll get back to
-            you soon.
+            {t("contact.description")}
           </p>
         </section>
 
@@ -25,11 +28,11 @@ export default function Contact() {
           <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
             <div className="text-left">
               <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Full Name
+                {t("contact.name")}
               </label>
               <input
                 type="text"
-                placeholder="Your name"
+                placeholder={t("contact.namePlaceholder")}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-300 focus:outline-none"
                 required
               />
@@ -37,11 +40,11 @@ export default function Contact() {
 
             <div className="text-left">
               <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Email
+                {t("contact.email")}
               </label>
               <input
                 type="email"
-                placeholder="you@example.com"
+                placeholder={t("contact.emailPlaceholder")}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-300 focus:outline-none"
                 required
               />
@@ -49,10 +52,10 @@ export default function Contact() {
 
             <div className="text-left">
               <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Message
+                {t("contact.message")}
               </label>
               <textarea
-                placeholder="Write your message here..."
+                placeholder={t("contact.messagePlaceholder")}
                 rows="4"
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-300 focus:outline-none resize-none"
                 required
@@ -63,7 +66,7 @@ export default function Contact() {
               type="submit"
               className="w-full bg-slate-800 text-white font-medium py-3 px-4 rounded-lg text-lg shadow-sm hover:bg-slate-900 transition-all duration-200"
             >
-              Send Message
+              {t("contact.send")}
             </button>
           </form>
         </section>

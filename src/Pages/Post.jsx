@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { client } from "../sanity/client";
 import { PortableText } from "@portabletext/react";
+import { useTranslation } from "react-i18next";
 
 export default function Post() {
   const { slug } = useParams();
   const [post, setPost] = useState(null);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     async function fetchPost() {
@@ -29,9 +31,11 @@ export default function Post() {
   }, [slug]);
 
   if (error)
-    return <p className="text-red-500 text-center mt-8">Error: {error}</p>;
+    return <p className="text-red-500 text-center mt-8">{t("post.error")}</p>;
   if (!post)
-    return <p className="text-gray-600 text-center mt-8">Loading article...</p>;
+    return (
+      <p className="text-gray-600 text-center mt-8">{t("post.loading")}</p>
+    );
 
   return (
     <div className="relative min-h-screen w-full font-montserrat bg-gradient-to-b from-rose-100 to-white text-gray-800 overflow-hidden">
@@ -52,11 +56,14 @@ export default function Post() {
             {post.title}
           </h1>
           <p className="text-lg text-rose-50">
-            {new Date(post.publishedAt).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
+            {new Date(post.publishedAt).toLocaleDateString(
+              i18n.language === "de" ? "de-DE" : "en-US",
+              {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              }
+            )}
           </p>
         </div>
       </section>
@@ -88,7 +95,7 @@ export default function Post() {
               }}
             />
           ) : (
-            <p>No content found for this post.</p>
+            <p>{t("post.noContent")}</p>
           )}
         </article>
 
@@ -98,7 +105,7 @@ export default function Post() {
             onClick={() => navigate(-1)}
             className="inline-block bg-rose-500 text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-rose-600 transition"
           >
-            ← Back to Articles
+            {t("post.back")}
           </button>
         </div>
       </section>
@@ -106,8 +113,7 @@ export default function Post() {
       {/* 🌸 Inspirational Footer */}
       <section className="max-w-4xl mx-auto px-6 py-12 text-center text-gray-700 mb-20">
         <blockquote className="italic text-lg text-rose-700">
-          “A healthy heart is a result of consistent care — body, mind, and
-          soul.”
+          “{t("post.quote")}”
         </blockquote>
       </section>
     </div>

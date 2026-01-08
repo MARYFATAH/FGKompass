@@ -81,5 +81,40 @@
     "readMore": "Weiterlesen",
     "helpfulTips": "Hilfreiche Tipps",
     "defaultExcerpt": "Entdecken Sie aktuelle Erkenntnisse und Forschung zur ganzheitlichen Gesundheit."
+  },
+  "post": {
+    "loading": "Artikel wird geladen …",
+    "error": "Fehler",
+    "noContent": "Kein Inhalt für diesen Artikel gefunden.",
+    "back": "Zurück zu den Artikeln",
+    "quote": "Ein gesundes Herz entsteht durch beständige Fürsorge – für Körper, Geist und Seele."
+  },
+  "contact": {
+    "description": "Wir freuen uns auf Ihre Nachricht! Senden Sie uns eine Nachricht und wir melden uns bei Ihnen.",
+    "name": "Vollständiger Name",
+    "email": "E-Mail",
+    "message": "Nachricht",
+    "send": "Nachricht senden",
+    "contactUs": "Kontaktieren Sie uns",
+    "contact": "Kontakt",
+    "namePlaceholder": "Ihr Name",
+    "emailPlaceholder": "Ihre E-Mail",
+    "messagePlaceholder": "Ihre Nachricht..."
+  },
+  "about": {
+    "title": "Über FG Kompass",
+    "description": "Erfahren Sie mehr über unsere Mission, unsere Geschichte und unsere Leidenschaft für ganzheitliches Wohlbefinden – wir begleiten Frauen auf dem Weg zu Balance in Körper, Geist und Leben.",
+    "mission": "Unsere Mission",
+    "history": "Unsere Geschichte",
+    "missionText": "Unsere Mission bei FG Kompass ist es, Frauen zu befähigen, ihre Gesundheit durch ganzheitliche, evidenzbasierte Praktiken selbst in die Hand zu nehmen. Wir glauben, dass Wohlbefinden eine lebenslange Reise ist – eine Reise, die gedeiht, wenn Körper, Geist und Seele im Einklang sind.",
+    "story": "Unsere Geschichte",
+    "storyText": "Gegründet im Jahr 2021 von einem leidenschaftlichen Team von Gesundheitsbegeisterten, begann FG Kompass als kleine Initiative, um Wellness-Bildung für alle zugänglich zu machen. Heute ist FG Kompass ein vertrauenswürdiger digitaler Begleiter für Tausende, die nach Balance, Stärke und Wissen suchen.",
+    "values": "Warum wir",
+    "value1": "Wissenschaftlich fundierte, leicht verständliche Einblicke",
+    "value2": "Authentische Anleitung von erfahrenen Gesundheitsexpertinnen",
+    "value3": "Eine mitfühlende Gemeinschaft, die auf Empowerment basiert",
+    "team": "Unser Team besteht aus Expertinnen in den Bereichen Ernährung, Fitness, mentale Gesundheit und Frauengesundheit, die sich leidenschaftlich dafür einsetzen, Frauen zu unterstützen.",
+    "joinUs": "Werde Teil unseres Teams",
+    "contactUs": "Kontaktiere uns"
   }
 }

@@ -80,5 +80,44 @@
     "readMore": "Read More",
     "helpfulTips": "Helpful Tips",
     "defaultExcerpt": "Explore the latest insights and research on holistic wellness."
+  },
+  "post": {
+    "loading": "Loading article…",
+    "error": "Error",
+    "noContent": "No content found for this article.",
+    "back": "Back to articles",
+    "quote": "A healthy heart is built through consistent care for body, mind, and soul."
+  },
+  "contact": {
+    "description": "We’d love to hear from you! Send us a message and we’ll get back to you soon.",
+    "name": "Full Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send Message",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "Your email",
+    "messagePlaceholder": "Your message",
+    "contactUs": "Contact Us",
+    "contact": "Contact"
+  },
+  "about": {
+    "title": "About Us",
+    "description": "We are a team of passionate women who are dedicated to helping women live their best lives. Our mission is to empower women to lead healthy lives, one step at a time.",
+    "mission": "Our Mission",
+    "missionText": "At FG Kompass, our mission is to empower women to lead healthy, balanced lives through holistic wellness. We believe that true health encompasses the mind, body, and spirit, and we are committed to providing science-backed, easy-to-understand insights and authentic guidance from experienced health professionals. Our goal is to create a supportive community that values empowerment, self-care, and lifelong wellness.",
+    "history": "Our History",
+    "story": "Our Story",
+    "storyText": "FG Kompass was founded in 2020 by a group of women who were passionate about holistic wellness. We saw a need for a platform that would provide womenwith reliable, science-backed information on nutrition, fitness, mental health, and women's health. Our mission is to empower women to lead healthy lives, one step at a time.",
+    "historyText": "Since our founding, we have grown into a team of expert health professionals who are dedicated to providing women with the best possible information and resources. We are committed to helping women live their best lives, and we are proud to be a part of the women's health community.",
+
+    "about": "About",
+    "values": "Why Choose Us",
+    "value1": "Science-backed, easy-to-understand insights",
+    "value2": "Authentic guidance from experienced health professionals",
+    "value3": "A supportive community that values empowerment",
+    "team": "Our Team consists of expert health professionals in nutrition, fitness, mental health, and women's health, who are passionate about helping women lead healthy lives.",
+    "joinUs": "Join Our Team",
+    "contactUs": "Contact Us",
+    "contact": "Contact"
   }
 }
