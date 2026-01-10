@@ -133,5 +133,8 @@
     "joinUs": "Join Our Team",
     "contactUs": "Contact Us",
     "contact": "Contact"
+  },
+  "minimalcard": {
+    "exploreCard": "Explore More →"
   }
 }

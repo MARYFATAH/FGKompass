@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 /**
  * 🌿 MinimalCard — elegant uniform-height category card (neutral theme)
  */
 const MinimalCard = ({ title, description, icon: Icon, link }) => {
+  const { t } = useTranslation();
   const content = (
     <div
       className="
@@ -37,7 +39,7 @@ const MinimalCard = ({ title, description, icon: Icon, link }) => {
 
       <div className="mt-5">
         <span className="inline-block text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors duration-150">
-          Learn More →
+          {t("minimalcard.exploreCard")}
         </span>
       </div>
     </div>

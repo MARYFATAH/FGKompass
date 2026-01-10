@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const articles = [
   {
@@ -20,6 +21,7 @@ const articles = [
 ];
 
 export default function MoreOnTopic() {
+  const { t } = useTranslation();
   return (
     <section className="w-full max-w-6xl mx-auto bg-white/90 backdrop-blur-sm rounded-2xl shadow-md p-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
@@ -43,7 +45,9 @@ export default function MoreOnTopic() {
               <h3 className="text-lg font-semibold text-slate-800 group-hover:text-rose-600 transition-colors leading-snug">
                 {article.title}
               </h3>
-              <p className="text-sm text-slate-500 mt-1">Read more →</p>
+              <p className="text-sm text-slate-500 mt-1">
+                {t("minimalcard.exploreCard")}
+              </p>
             </div>
           </a>
         ))}

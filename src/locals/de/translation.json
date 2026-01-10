@@ -130,5 +130,8 @@
     "team": "Unser Team besteht aus Expertinnen in den Bereichen Ernährung, Fitness, mentale Gesundheit und Frauengesundheit, die sich leidenschaftlich dafür einsetzen, Frauen zu unterstützen.",
     "joinUs": "Werde Teil unseres Teams",
     "contactUs": "Kontaktiere uns"
+  },
+  "minimalcard": {
+    "exploreCard": "Mehr entdecken →"
   }
 }

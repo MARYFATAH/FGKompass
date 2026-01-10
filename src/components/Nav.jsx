@@ -118,9 +118,9 @@ export default function Nav() {
                   { name: t("nav.osteoporosis"), to: "/health/osteoporosis" },
                   {
                     name: t("nav.endrometriosis"),
-                    to: "/health/endrometriosis",
+                    to: "/health/endometriosis",
                   },
-                  { name: t("nav.maternity"), to: "/health/maternity" },
+                  { name: t("nav.maternity"), to: "/health/maternal-health" },
                   { name: t("nav.mentalHealth"), to: "/health/mental-health" },
                   { name: t("nav.menopause"), to: "/health/menopause" },
                 ].map((item) => (
