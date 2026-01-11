@@ -2,6 +2,7 @@
 import React, { useMemo, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import useLocalStorage from "../hooks/useLocalStorage";
+import { useTranslation } from "react-i18next";
 
 /* --- small helpers --- */
 const toISO = (d) => new Date(d).toISOString().slice(0, 10);
@@ -13,6 +14,7 @@ const addDaysISO = (iso, days) => {
 };
 
 export default function CycleTracker() {
+  const { t } = useTranslation();
   // stored shape: [{ id, startDate, length? }]
   const [cycles, setCycles] = useLocalStorage("cycles", []);
   const [startInput, setStartInput] = useState(toISO(new Date()));
@@ -158,62 +160,66 @@ export default function CycleTracker() {
 
   /* --- UI --- */
   return (
-    <div className="min-h-[80vh] w-full bg-gradient-to-b from-rose-100 via-rose-200/60 to-rose-300/40 p-8 font-montserrat flex flex-col items-center">
-      <h1 className="text-3xl md:text-4xl font-bold text-slate-800 mb-6 drop-shadow-sm">
-        Cycle Tracker
-      </h1>
+    <div className="relative min-h-screen w-full font-montserrat bg-gradient-to-b from-rose-50 via-white to-rose-50 text-gray-700">
+      {/* 🌸 Header */}
+      <div className="pt-24 pb-12 text-center px-6">
+        <h1 className="text-3xl md:text-4xl font-semibold text-rose-600 tracking-tight">
+          {t("cycleTracker.title")}
+        </h1>
+        <p className="mt-2 text-sm text-rose-400">{t("cycleTracker.note")}</p>
+      </div>
 
-      <div className="w-full max-w-4xl grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* LEFT: big visual wheel */}
-        <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-md border border-gray-200 p-6 flex flex-col items-center">
-          <div className="mb-4 text-center">
-            <div className="text-sm text-gray-600">Current</div>
-            <div className="text-xl font-semibold text-slate-800">{status}</div>
-            <div className="text-xs text-gray-500 mt-1">
+      <div className="w-full max-w-5xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 pb-24">
+        {/* 🌕 LEFT – Visual Wheel */}
+        <div className="bg-white rounded-2xl shadow-sm border border-rose-100 p-6 flex flex-col items-center">
+          {/* Status */}
+          <div className="text-center mb-5">
+            <div className="text-xs uppercase tracking-wide text-rose-400">
+              {t("cycleTracker.status")}
+            </div>
+            <div className="text-xl font-medium text-rose-600 mt-1">
+              {status}
+            </div>
+            <div className="text-xs text-gray-400 mt-1">
               {predictedNextStart
-                ? `Next period: ${predictedNextStart} • Avg ${cycleLength}d`
-                : "Add a few cycle starts to get predictions"}
+                ? `${predictedNextStart} • ${cycleLength}d`
+                : t("cycleTracker.noPredictions")}
             </div>
           </div>
 
-          {/* big donut */}
-          <div style={{ width: 320, height: 320 }} className="relative">
+          {/* Donut */}
+          <div className="relative" style={{ width: 300, height: 300 }}>
             <div
               aria-hidden
+              className="rounded-full flex items-center justify-center"
               style={{
-                width: 320,
-                height: 320,
-                borderRadius: 9999,
+                width: 300,
+                height: 300,
                 background: wheelGradient,
-                display: "grid",
-                placeItems: "center",
-                boxShadow: "0 8px 30px rgba(15,23,42,0.08)",
+                boxShadow: "0 12px 30px rgba(244,63,94,0.12)",
               }}
             >
               <div
+                className="rounded-full flex flex-col items-center justify-center text-center"
                 style={{
-                  width: 200,
-                  height: 200,
-                  borderRadius: 9999,
-                  background: "rgba(255,255,255,0.95)",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
+                  width: 190,
+                  height: 190,
+                  background: "rgba(255,255,255,0.97)",
                 }}
-                className="text-center p-3"
               >
-                <div className="text-sm text-gray-500">Cycle day</div>
-                <div className="text-3xl font-semibold text-slate-800 mt-1">
+                <div className="text-xs text-rose-400">
+                  {t("cycleTracker.day")}
+                </div>
+                <div className="text-3xl font-semibold text-rose-600 mt-1">
                   {cycleDayToday ?? "—"}
                 </div>
-                <div className="text-xs text-gray-500 mt-2">
-                  Avg {cycleLength}d • Period ~{periodLength}d
+                <div className="text-xs text-gray-400 mt-2">
+                  {cycleLength}d • ~{periodLength}d
                 </div>
               </div>
             </div>
 
-            {/* ovulation dot (clear and bold) */}
+            {/* Ovulation Dot */}
             {predictedOvulation &&
               cycleLength > 0 &&
               (() => {
@@ -221,175 +227,144 @@ export default function CycleTracker() {
                 const ov = new Date(predictedOvulation);
                 const dayNum = daysDiff(pStart, ov) + 1;
                 const angle = ((dayNum - 1) / cycleLength) * 360;
-                const cx = 160,
-                  cy = 160,
-                  r = 136;
+                const cx = 150,
+                  cy = 150,
+                  r = 128;
                 const rad = (angle - 90) * (Math.PI / 180);
                 const x = cx + Math.cos(rad) * r;
                 const y = cy + Math.sin(rad) * r;
+
                 return (
                   <div
+                    className="absolute rounded-full border-2 border-white"
                     style={{
-                      position: "absolute",
-                      left: x - 10,
-                      top: y - 10,
-                      width: 20,
-                      height: 20,
-                      borderRadius: 9999,
-                      background: "#fb923c",
-                      boxShadow: "0 6px 18px rgba(251,146,60,0.25)",
-                      border: "3px solid white",
+                      left: x - 8,
+                      top: y - 8,
+                      width: 16,
+                      height: 16,
+                      background: "#fb7185",
+                      boxShadow: "0 6px 16px rgba(251,113,133,0.4)",
                     }}
-                    title={`Ovulation: ${predictedOvulation}`}
+                    title={`${t(
+                      "cycleTracker.ovulation"
+                    )} • ${predictedOvulation}`}
                   />
                 );
               })()}
           </div>
 
-          {/* legend */}
-          <div className="mt-6 grid grid-cols-2 gap-2 text-sm w-full">
-            <div className="flex items-center gap-3">
-              <span className="w-4 h-4 rounded-full bg-rose-500" />
-              <div>Period</div>
+          {/* Legend */}
+          <div className="mt-6 grid grid-cols-2 gap-3 text-xs text-gray-600 w-full">
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-rose-400" />
+              {t("cycleTracker.legend.period")}
             </div>
-            <div className="flex items-center gap-3">
-              <span className="w-4 h-4 rounded-full bg-amber-200 border border-amber-300" />
-              <div>Fertile window</div>
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-amber-200" />
+              {t("cycleTracker.legend.fertile")}
             </div>
-            <div className="flex items-center gap-3">
-              <span className="w-4 h-4 rounded-full bg-orange-400" />
-              <div>Ovulation</div>
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-orange-400" />
+              {t("cycleTracker.legend.ovulation")}
             </div>
-            <div className="flex items-center gap-3">
-              <span className="w-4 h-4 rounded-full bg-slate-50 border" />
-              <div>Normal</div>
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-rose-50 border" />
+              {t("cycleTracker.legend.normal")}
             </div>
           </div>
         </div>
 
-        {/* RIGHT: simple controls + compact list */}
-        <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-md border border-gray-200 p-6 flex flex-col gap-4">
+        {/* 🌿 RIGHT – Controls */}
+        <div className="bg-white rounded-2xl shadow-sm border border-rose-100 p-6 flex flex-col gap-6">
+          {/* Add cycle */}
           <div>
-            <h2 className="text-lg font-semibold text-slate-900">
-              Add / Manage
+            <h2 className="text-lg font-medium text-rose-600">
+              {t("cycleTracker.manage.title")}
             </h2>
-            <p className="text-sm text-gray-500 mt-1">
-              Only local storage — no accounts required.
+            <p className="text-xs text-gray-400 mt-1">
+              {t("cycleTracker.manage.subtitle")}
             </p>
           </div>
 
-          <form onSubmit={addCycle} className="flex flex-col gap-3">
+          <form onSubmit={addCycle} className="space-y-4">
             <div>
-              <label className="block text-sm font-semibold text-gray-700">
-                Start date
+              <label className="text-xs text-gray-500">
+                {t("cycleTracker.manage.startDate")}
               </label>
               <input
                 type="date"
                 value={startInput}
                 onChange={(e) => setStartInput(e.target.value)}
-                className="w-full border rounded-lg px-3 py-2 mt-1"
+                className="w-full mt-1 rounded-xl border border-rose-200 px-3 py-2 text-sm focus:ring-rose-300"
                 required
               />
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-gray-700">
-                Period length (optional)
+              <label className="text-xs text-gray-500">
+                {t("cycleTracker.manage.periodLength")}
               </label>
               <input
                 type="number"
                 min="1"
-                placeholder="e.g. 5"
                 value={lengthInput}
                 onChange={(e) => setLengthInput(e.target.value)}
-                className="w-32 border rounded-lg px-3 py-2 mt-1"
+                className="w-32 mt-1 rounded-xl border border-rose-200 px-3 py-2 text-sm"
               />
             </div>
 
             <div className="flex gap-3">
-              <button className="flex-1 bg-rose-500 hover:bg-rose-600 text-white py-2 rounded-xl">
-                Add cycle
+              <button className="flex-1 bg-rose-500 hover:bg-rose-600 text-white rounded-xl py-2 text-sm transition">
+                {t("cycleTracker.manage.add")}
               </button>
               <button
                 type="button"
                 onClick={markToday}
-                className="bg-white border px-3 py-2 rounded-xl"
+                className="px-4 py-2 rounded-xl border border-rose-200 text-rose-600 text-sm"
               >
-                Mark today
-              </button>
-              <button
-                type="button"
-                onClick={removeLast}
-                className="bg-white border px-3 py-2 rounded-xl text-red-600"
-              >
-                Remove last
+                {t("cycleTracker.manage.markToday")}
               </button>
             </div>
+
+            <button
+              type="button"
+              onClick={removeLast}
+              className="text-xs text-rose-400 self-start hover:text-rose-600"
+            >
+              {t("cycleTracker.manage.removeLast")}
+            </button>
           </form>
 
-          {/* compact recorded starts */}
-          <div className="mt-2">
-            <h3 className="text-sm font-semibold text-slate-800 mb-2">
-              Recorded starts
+          {/* Records */}
+          <div>
+            <h3 className="text-sm font-medium text-rose-600 mb-2">
+              {t("cycleTracker.recordedStarts")}
             </h3>
+
             {sorted.length === 0 ? (
-              <div className="text-sm text-gray-500">
-                No recorded starts yet.
-              </div>
+              <p className="text-xs text-gray-400">
+                {t("cycleTracker.records.empty")}
+              </p>
             ) : (
-              <ul className="space-y-2 max-h-48 overflow-auto">
+              <ul className="space-y-2 max-h-44 overflow-auto">
                 {sorted.map((c) => (
                   <li
                     key={c.id}
-                    className="flex justify-between items-center bg-white rounded-xl px-3 py-2 border"
+                    className="flex justify-between items-center border border-rose-100 rounded-xl px-3 py-2 text-sm"
                   >
-                    <div>
-                      <div className="font-medium text-slate-800">
-                        {c.startDate}
-                      </div>
-                      {c.length && (
-                        <div className="text-xs text-gray-500">
-                          Period {c.length}d
-                        </div>
-                      )}
-                    </div>
+                    <span>{c.startDate}</span>
                     <button
                       onClick={() =>
                         setCycles((s) => s.filter((x) => x.id !== c.id))
                       }
-                      className="text-sm text-red-500"
+                      className="text-xs text-rose-400 hover:text-rose-600"
                     >
-                      Remove
+                      {t("cycleTracker.records.remove")}
                     </button>
                   </li>
                 ))}
               </ul>
             )}
-          </div>
-
-          {/* stats */}
-          <div className="mt-3 text-sm text-gray-700">
-            <div>
-              Average cycle length: <strong>{averageCycle} days</strong>
-            </div>
-            {predictedNextStart && (
-              <>
-                <div className="mt-1">
-                  Next predicted start: <strong>{predictedNextStart}</strong>
-                </div>
-                <div>
-                  Ovulation: <strong>{predictedOvulation}</strong>
-                </div>
-                <div>
-                  Fertile window: <strong>{fertileStart}</strong> —{" "}
-                  <strong>{fertileEnd}</strong>
-                </div>
-              </>
-            )}
-          </div>
-
-          <div className="mt-4 text-xs text-gray-500">
-            <strong>Note:</strong> Data is stored locally only on this device.
           </div>
         </div>
       </div>

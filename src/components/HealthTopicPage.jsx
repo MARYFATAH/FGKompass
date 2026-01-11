@@ -84,7 +84,7 @@ export default function HealthTopicPage({
                 <img
                   src={post.imageUrl}
                   alt={post.title}
-                  className="w-full h-56 object-cover rounded-t-2xl"
+                  className="w-full h-56 object-cover "
                 />
 
                 <div className="p-6 flex flex-col justify-between flex-grow">
@@ -119,7 +119,7 @@ export default function HealthTopicPage({
 
       {/* 💡 Tips */}
       {tips.length > 0 && (
-        <section className="max-w-6xl mx-auto px-6 py-16 bg-rose-50 shadow shadow-rose-100 rounded-2xl mb-24">
+        <section className="max-w-4xl mx-auto px-6 py-16 bg-rose-50 shadow shadow-rose-100 rounded-2xl mb-24">
           <h3 className="text-2xl font-semibold text-rose-600 mb-6">
             {t("healthTopic.helpfulTips")}
           </h3>

@@ -133,5 +133,64 @@
   },
   "minimalcard": {
     "exploreCard": "Mehr entdecken →"
+  },
+  "cycleTracker": {
+    "title": "Zyklus-Tracker",
+    "current": "Aktuell",
+    "nextPeriod": "Nächste Periode: {{date}} • Ø {{days}} Tage",
+    "needMoreData": "Füge einige Zyklusstarts hinzu, um Vorhersagen zu erhalten",
+
+    "cycleDay": "Zyklustag",
+    "average": "Ø {{cycle}} Tage • Periode ~{{period}} Tage",
+    "periodLength": "Dauer der Periode",
+    "cycleLength": "Zykluslänge",
+    "recordedStarts": " aufgezeichnete Starts",
+    "status": "Status",
+    "predictedNextStart": "Vorhersage des nächsten Starts basierend auf Ihren Daten",
+    "predictedCycleLength": "Vorhersage der Zykluslänge basierend auf Ihren Daten",
+    "day": "Tage",
+    "legend": {
+      "period": "Periode",
+      "fertile": "Fruchtbare Phase",
+      "ovulation": "Eisprung",
+      "normal": "Normal"
+    },
+
+    "manage": {
+      "title": "Hinzufügen / Verwalten",
+      "subtitle": "Nur lokale Speicherung — kein Konto erforderlich.",
+      "startDate": "Startdatum",
+      "periodLength": "Dauer der Periode (optional)",
+      "add": "Zyklus hinzufügen",
+      "markToday": "Heute markieren",
+      "removeLast": "Letzten entfernen"
+    },
+
+    "records": {
+      "title": "Gespeicherte Starts",
+      "empty": "Noch keine Einträge vorhanden.",
+      "remove": "Entfernen",
+      "periodDays": "Periode {{days}} Tage"
+    },
+
+    "stats": {
+      "avgCycle": "Durchschnittliche Zykluslänge: {{days}} Tage",
+      "nextStart": "Nächster Start:",
+      "ovulation": "Eisprung:",
+      "fertile": "Fruchtbare Phase:",
+      "period": "Periode:",
+      "trackedCycles": "Verfolgte Zyklen: {{count}}",
+      "averagePeriod": "Durchschnittliche Periodendauer: {{days}} Tage",
+      "longestCycle": "Längster Zyklus: {{days}} Tage",
+      "shortestCycle": "Kürzester Zyklus: {{days}} Tage",
+      "averageCycle": "Durchschnittliche Zykluslänge:",
+      "days": "Tage",
+      "predictedNextStart": "Vorhersage des nächsten Starts basierend auf Ihren Daten",
+      "fertileWindow": "Vorhersage des Eisprungs basierend auf Ihren Daten",
+      "predictedOvulation": "Vorhersage der fruchtbaren Phase basierend auf Ihren Daten"
+    },
+    "dataStoredLocally": "Die Daten werden nur lokal auf diesem Gerät gespeichert.",
+
+    "note": "Die Daten werden nur lokal auf diesem Gerät gespeichert."
   }
 }

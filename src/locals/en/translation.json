@@ -136,5 +136,65 @@
   },
   "minimalcard": {
     "exploreCard": "Explore More →"
+  },
+  "cycleTracker": {
+    "title": "Cycle Tracker",
+    "current": "Current",
+    "nextPeriod": "Next period: {{date}} • Avg {{days}} days",
+    "needMoreData": "Add a few cycle starts to get predictions",
+    "status": "Status",
+    "predictedNextStart": "Predicted next start based on your data",
+    "predictedCycleLength": "Predicted cycle length based on your data",
+    "day": "day",
+
+    "cycleDay": "Cycle day",
+    "average": "Avg {{cycle}} days • Period ~{{period}} days",
+    "periodLength": "Period length",
+    "cycleLength": "Cycle length",
+    "recordedStarts": "Recorded starts",
+
+    "legend": {
+      "period": "Period",
+      "fertile": "Fertile window",
+      "ovulation": "Ovulation",
+      "normal": "Normal"
+    },
+
+    "manage": {
+      "title": "Add / Manage",
+      "subtitle": "Local storage only — no account required.",
+      "startDate": "Start date",
+      "periodLength": "Period length (optional)",
+      "add": "Add cycle",
+      "markToday": "Mark today",
+      "removeLast": "Remove last"
+    },
+
+    "records": {
+      "title": "Recorded starts",
+      "empty": "No records yet.",
+      "remove": "Remove",
+      "periodDays": "Period {{days}} days"
+    },
+
+    "stats": {
+      "avgCycle": "Average cycle length: {{days}} days",
+      "nextStart": "Next start:",
+      "ovulation": "Ovulation:",
+      "fertile": "Fertile window:",
+      "period": "Period:",
+      "trackedCycles": "Tracked cycles: {{count}}",
+      "averagePeriod": "Average period length: {{days}} days",
+      "longestCycle": "Longest cycle: {{days}} days",
+      "shortestCycle": "Shortest cycle: {{days}} days",
+      "averageCycle": "Average cycle length:",
+      "days": "days",
+      "predictedNextStart": "Predicted next start based on your data",
+      "fertileWindow": "Predicted ovulation window based on your data",
+      "predictedOvulation": "Predicted fertile phase based on your data"
+    },
+
+    "dataStoredLocally": "Data is stored locally on this device only.",
+    "note": "Data is stored locally on this device only."
   }
 }
