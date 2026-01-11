@@ -191,7 +191,7 @@ export default function Nav() {
             </button>
 
             {/* ================= LANGUAGE SWITCHER ================= */}
-            <div className="relative text-sm">
+            <div className="relative text-sm md:text-base sm:ml-4">
               {/* Button */}
               <button
                 onClick={() => setOpen(!open)}
@@ -398,6 +398,30 @@ export default function Nav() {
             >
               Contact Us
             </Link>
+          </div>
+          {/* Language Switcher */}
+          <div className="px-4 py-3 border-t border-gray-200">
+            <span className="block mb-2 font-medium">{t("language")}:</span>
+            <div className="flex space-x-4">
+              <button
+                onClick={() => {
+                  changeLang("de");
+                  setMobileOpen(false);
+                }}
+                className="px-3 py-1 rounded-md border border-gray-300 hover:bg-rose-50 transition"
+              >
+                Deutsch
+              </button>
+              <button
+                onClick={() => {
+                  changeLang("en");
+                  setMobileOpen(false);
+                }}
+                className="px-3 py-1 rounded-md border border-gray-300 hover:bg-rose-50 transition"
+              >
+                English
+              </button>
+            </div>
           </div>
         </div>
       )}
