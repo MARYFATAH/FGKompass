@@ -2,53 +2,52 @@ import { useTranslation } from "react-i18next";
 
 export default function About() {
   const { t } = useTranslation();
+
   return (
-    <div className="relative min-h-screen w-full font-montserrat flex flex-col overflow-hidden bg-gradient-to-b from-rose-100 via-rose-200/70 to-rose-300/50">
-      {/* 🌿 Elegant Side Borders */}
-      <div className="absolute inset-y-0 left-[4%] right-[4%] border-x border-rose-300/50 pointer-events-none" />
+    <div className="relative min-h-screen w-full font-montserrat overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-rose-50 via-rose-100/70 to-white" />
+      <div className="absolute inset-y-0 left-[4%] right-[4%] border-x border-rose-200/60 pointer-events-none" />
+      <div className="absolute inset-0 bg-white/40" />
 
-      {/* 🌸 Overlay tint */}
-      <div className="absolute inset-0 bg-white/30 backdrop-blur-[1px]" />
-
-      {/* 🌸 Main Content */}
-      <main className="relative z-10  flex-grow flex flex-col items-center text-center px-6 py-16 space-y-16">
-        {/* 🌷 Hero Section */}
-        <section>
-          <h1 className="text-5xl font-bold mt-15 mb-4 text-slate-800 drop-shadow-sm">
+      <main className="relative z-10 flex flex-col items-center px-6 py-20 space-y-20">
+        {/* Hero */}
+        <section className="text-center max-w-3xl">
+          <h1 className="text-5xl md:text-6xl font-semibold tracking-tight text-rose-600 mb-6">
             {t("about.title")}
           </h1>
-          <p className="text-lg text-slate-700 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
             {t("about.description")}
           </p>
         </section>
 
-        {/* 🌿 Content Section */}
-        <section className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-white/90 backdrop-blur-sm rounded-2xl shadow-md border border-gray-200 p-10">
-          {/* Left: Text */}
-          <div className="text-left space-y-6 text-gray-800">
+        {/* Content */}
+        <section className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-white/80 backdrop-blur-sm rounded-3xl shadow-sm border border-rose-100 p-12">
+          {/* Text */}
+          <div className="space-y-10 text-left">
             <div>
-              <h2 className="text-2xl font-semibold text-slate-900 mb-2">
+              <h2 className="text-2xl font-semibold text-rose-500 mb-3">
                 {t("about.mission")}
               </h2>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-slate-600 leading-relaxed">
                 {t("about.missionText")}
               </p>
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold text-slate-900 mb-2">
+              <h2 className="text-2xl font-semibold text-rose-500 mb-3">
                 {t("about.history")}
               </h2>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-slate-600 leading-relaxed">
                 {t("about.storyText")}
               </p>
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold text-slate-900 mb-2">
+              <h2 className="text-2xl font-semibold text-rose-500 mb-3">
                 {t("about.values")}
               </h2>
-              <ul className="list-disc list-inside space-y-2 text-gray-700">
+              <ul className="space-y-2 text-slate-600 list-disc list-inside">
                 <li>{t("about.value1")}</li>
                 <li>{t("about.value2")}</li>
                 <li>{t("about.value3")}</li>
@@ -56,21 +55,22 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right: Image */}
-          <div className="flex justify-center">
+          {/* Image */}
+          <div className="relative">
             <img
               src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1200&q=80"
               alt="Women practicing mindfulness and balance"
-              className="rounded-2xl shadow-md object-cover w-full h-96"
+              className="rounded-3xl object-cover w-full h-[420px] shadow-sm"
             />
+            <div className="absolute inset-0 rounded-3xl ring-1 ring-rose-100 pointer-events-none" />
           </div>
         </section>
 
-        {/* 🌸 Call to Action */}
-        <section className="flex justify-center">
+        {/* CTA */}
+        <section>
           <a
             href="/contact"
-            className="bg-slate-800 text-white px-8 py-3 rounded-md text-lg font-medium shadow-sm hover:bg-slate-900 transition-all duration-200"
+            className="inline-flex items-center gap-2 bg-rose-500 text-white px-10 py-3 rounded-full text-lg font-medium shadow-sm hover:bg-rose-600 transition"
           >
             {t("about.contactUs")}
           </a>

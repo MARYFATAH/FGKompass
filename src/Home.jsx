@@ -45,7 +45,7 @@ export default function Home() {
             imageAlt="Group of women smiling outdoors"
           />
 
-          <p className="mt-10 text-xl md:text-2xl text-slate-700 font-semibold italic max-w-3xl mx-auto">
+          <p className="mt-10 text-xl md:text-2xl text-rose-900 font-medium italic max-w-3xl mx-auto">
             “{t("home.tagline")}”
           </p>
 
@@ -56,8 +56,9 @@ export default function Home() {
 
         {/* Featured */}
         <section className="w-full max-w-6xl text-left space-y-10">
-          <h2 className="text-3xl font-bold border-b-2 border-rose-200 pb-3">
+          <h2 className="text-3xl md:text-4xl font-semibold text-rose-800 tracking-wide relative pb-4">
             {t("home.featuredTitle")}
+            <span className="absolute left-0 bottom-0 w-24 h-[3px] bg-gradient-to-r from-rose-400 to-rose-200 rounded-full" />
           </h2>
 
           {error ? (
@@ -69,7 +70,7 @@ export default function Home() {
               {featured.map((post) => (
                 <article
                   key={post._id}
-                  className="bg-white rounded-2xl shadow-sm overflow-hidden"
+                  className="bg-white/90 rounded-2xl shadow-sm hover:shadow-md transition overflow-hidden"
                 >
                   <img
                     src={post.imageUrl}
@@ -79,15 +80,17 @@ export default function Home() {
 
                   <div className="p-6 h-[250px] flex flex-col justify-between">
                     <div>
-                      <h3 className="text-xl font-semibold mb-3">
+                      <h3 className="text-lg font-medium text-rose-900 mb-3">
                         {post.title}
                       </h3>
-                      <p className="text-sm line-clamp-3">{post.excerpt}</p>
+                      <p className="text-sm text-slate-600 line-clamp-3">
+                        {post.excerpt}
+                      </p>
                     </div>
 
                     <Link
                       to={`/${post.slug.current}`}
-                      className="mt-5 bg-slate-700 text-white px-5 py-2 rounded-md text-sm hover:bg-slate-900"
+                      className="mt-5 inline-block w-fit bg-rose-500 text-white px-5 py-2 rounded-full text-sm hover:bg-rose-600 transition"
                     >
                       {t("home.readMore")}
                     </Link>
@@ -100,8 +103,9 @@ export default function Home() {
 
         {/* Explore */}
         <section className="w-full max-w-6xl text-left space-y-10">
-          <h2 className="text-3xl font-bold border-b-2 border-rose-200 pb-3">
+          <h2 className="text-3xl md:text-4xl font-semibold text-rose-800 tracking-wide relative pb-4">
             {t("home.exploreTitle")}
+            <span className="absolute left-0 bottom-0 w-24 h-[3px] bg-gradient-to-r from-rose-400 to-rose-200 rounded-full" />
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
@@ -110,21 +114,25 @@ export default function Home() {
               description={t("home.cards.nutrition.desc")}
               link="/wellness/nutrition"
             />
+
             <MinimalCard
               title={t("home.cards.fitness.title")}
               description={t("home.cards.fitness.desc")}
               link="/wellness/fitness"
             />
+
             <MinimalCard
               title={t("home.cards.mental.title")}
               description={t("home.cards.mental.desc")}
               link="/health/mental-health"
             />
+
             <MinimalCard
               title={t("home.cards.recipes.title")}
               description={t("home.cards.recipes.desc")}
               link="/wellness/recipe"
             />
+
             <MinimalCard
               title={t("home.cards.pregnancy.title")}
               description={t("home.cards.pregnancy.desc")}
@@ -135,8 +143,9 @@ export default function Home() {
 
         {/* More */}
         <section className="w-full max-w-6xl text-left space-y-10">
-          <h2 className="text-3xl font-bold border-b-2 border-rose-200 pb-3">
+          <h2 className="text-3xl md:text-4xl font-semibold text-rose-800 tracking-wide relative pb-4">
             {t("home.moreOnTopic")}
+            <span className="absolute left-0 bottom-0 w-24 h-[3px] bg-gradient-to-r from-rose-400 to-rose-200 rounded-full" />
           </h2>
           <MoreOnTopic />
         </section>
@@ -144,7 +153,7 @@ export default function Home() {
         {/* CTA */}
         <a
           href="/about"
-          className="bg-slate-600 text-white px-10 py-3 rounded-lg hover:bg-slate-700"
+          className="bg-rose-500 text-white px-10 py-3 rounded-full hover:bg-rose-600 transition"
         >
           {t("home.cta")}
         </a>
