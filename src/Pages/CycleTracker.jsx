@@ -301,7 +301,7 @@ export default function CycleTracker() {
             </div>
 
             <div>
-              <label className="text-xs text-gray-500">
+              <label className="text-xs text-gray-500 m-2">
                 {t("cycleTracker.manage.periodLength")}
               </label>
               <input
