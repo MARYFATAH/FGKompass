@@ -5,30 +5,44 @@ import { useTranslation } from "react-i18next";
 
 export default function LandingPage() {
   const { t } = useTranslation();
+
   return (
-    <div className=" relative h-screen w-full font-montserrat">
-      {/* Background image with rose gradient overlay */}
+    <div className="relative min-h-screen w-full font-montserrat overflow-hidden">
+      {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: `url(${bgImage})`,
-        }}
-      ></div>
+        style={{ backgroundImage: `url(${bgImage})` }}
+      />
 
-      {/* Gradient overlay */}
-      <div className="absolute h-150 inset-0 bg-gradient-to-b from-rose-300/70 to-rose-100/10"></div>
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-rose-300/80 via-rose-200/50 to-white/20" />
 
-      {/* Centered content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
-        <h1 className="text-5xl font-bold mb-4 drop-shadow-lg ">
-          <div className="mb-4">{t("landing.title")}</div>
+      {/* Content */}
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-6">
+        <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-white drop-shadow-lg leading-tight">
+          {t("landing.title")}
         </h1>
-        <p className=" text-gray-600 text-xl mb-8 max-w-md m-4 ">
+
+        <p className="text-base sm:text-xl text-gray-700 mb-10 max-w-md">
           {t("landing.subtitle")}
         </p>
+
+        {/* Transparent White Button */}
         <Link
           to="/home"
-          className="transition-colors shadow-sm text-white font-semibold py-2 px-6 rounded-sm border border-white"
+          className="
+            inline-flex items-center justify-center
+            bg-white/30 backdrop-blur-md
+            border border-white/60
+            text-white font-semibold
+            px-8 py-3
+            rounded-md
+            shadow-md
+            hover:bg-white/40
+            hover:border-white
+            transition-all duration-200
+            focus:outline-none focus:ring-2 focus:ring-white/70
+          "
         >
           {t("landing.start")}
         </Link>
