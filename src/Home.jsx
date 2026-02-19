@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { client } from "./sanity/client";
+import { buildImageUrl } from "./sanity/imageUrl";
 import PictureCard from "./components/PictureCard";
 import MinimalCard from "./components/MinimalCard";
 import MoreOnTopic from "./components/MoreOnTopic";
-import womenImg from "./assets/strongwomen.jpg";
+import KeinGeheimtipp from "./components/KeinGeheimtipp";
+import womenImg from "./assets/4women.jpg";
 
 export default function Home() {
   const { t } = useTranslation();
@@ -18,7 +20,7 @@ export default function Home() {
         _id,
         title,
         slug,
-        "imageUrl": image.asset->url,
+        image,
         publishedAt,
         excerpt
       }`;
@@ -30,10 +32,8 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative min-h-screen font-montserrat flex flex-col overflow-hidden text-slate-800">
-      <div className="absolute inset-0 bg-gradient-to-b from-rose-100 via-rose-200/70 to-rose-300/60" />
-      <div className="absolute inset-0 bg-white/40 mix-blend-overlay" />
-      <div className="absolute inset-y-0 left-[3%] right-[3%] border-x border-rose-300/50 pointer-events-none z-0" />
+    <div className="relative min-h-screen font-montserrat flex flex-col overflow-hidden text-slate-800 bg-white">
+      
 
       <main className="relative flex-grow flex flex-col items-center text-center px-6 py-20 space-y-24 z-10">
         {/* Hero */}
@@ -56,7 +56,7 @@ export default function Home() {
 
         {/* Featured */}
         <section className="w-full max-w-6xl text-left space-y-10">
-          <h2 className="text-3xl md:text-4xl font-semibold text-rose-800 tracking-wide relative pb-4">
+          <h2 className="text-3xl md:text-4xl font-semibold text-[#9F1239] tracking-wide relative pb-4">
             {t("home.featuredTitle")}
             <span className="absolute left-0 bottom-0 w-24 h-[3px] bg-gradient-to-r from-rose-400 to-rose-200 rounded-full" />
           </h2>
@@ -70,13 +70,17 @@ export default function Home() {
               {featured.map((post) => (
                 <article
                   key={post._id}
-                  className="bg-white/90 rounded-2xl shadow-sm hover:shadow-md transition overflow-hidden"
+                  className="bg-white rounded-2xl border border-[#FCE7F3] shadow-sm hover:shadow-md transition overflow-hidden"
                 >
-                  <img
-                    src={post.imageUrl}
-                    alt={post.title}
-                    className="w-full h-56 object-cover"
-                  />
+                  <div className="w-full h-56 bg-[#FDE8EF] overflow-hidden">
+                    {post.image ? (
+                      <img
+                        src={buildImageUrl(post.image).width(900).height(560).fit("crop").auto("format").url()}
+                        alt={post.title}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : null}
+                  </div>
 
                   <div className="p-6 h-[250px] flex flex-col justify-between">
                     <div>
@@ -90,7 +94,7 @@ export default function Home() {
 
                     <Link
                       to={`/${post.slug.current}`}
-                      className="mt-5 inline-block w-fit bg-rose-500 text-white px-5 py-2 rounded-full text-sm hover:bg-rose-600 transition"
+                      className="mt-5 inline-block w-fit bg-[#E11D48] text-white px-5 py-2 rounded-full text-sm hover:bg-[#BE123C] transition"
                     >
                       {t("home.readMore")}
                     </Link>
@@ -103,7 +107,7 @@ export default function Home() {
 
         {/* Explore */}
         <section className="w-full max-w-6xl text-left space-y-10">
-          <h2 className="text-3xl md:text-4xl font-semibold text-rose-800 tracking-wide relative pb-4">
+          <h2 className="text-3xl md:text-4xl font-semibold text-[#9F1239] tracking-wide relative pb-4">
             {t("home.exploreTitle")}
             <span className="absolute left-0 bottom-0 w-24 h-[3px] bg-gradient-to-r from-rose-400 to-rose-200 rounded-full" />
           </h2>
@@ -141,9 +145,18 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Secret Tip */}
+        <section className="w-full max-w-6xl text-left space-y-10">
+          <h2 className="text-3xl md:text-4xl font-semibold text-[#9F1239] tracking-wide relative pb-4">
+            {t("home.sectionSecretTip")}
+            <span className="absolute left-0 bottom-0 w-24 h-[3px] bg-gradient-to-r from-rose-400 to-rose-200 rounded-full" />
+          </h2>
+          <KeinGeheimtipp />
+        </section>
+
         {/* More */}
         <section className="w-full max-w-6xl text-left space-y-10">
-          <h2 className="text-3xl md:text-4xl font-semibold text-rose-800 tracking-wide relative pb-4">
+          <h2 className="text-3xl md:text-4xl font-semibold text-[#9F1239] tracking-wide relative pb-4">
             {t("home.moreOnTopic")}
             <span className="absolute left-0 bottom-0 w-24 h-[3px] bg-gradient-to-r from-rose-400 to-rose-200 rounded-full" />
           </h2>
@@ -153,7 +166,7 @@ export default function Home() {
         {/* CTA */}
         <a
           href="/about"
-          className="bg-rose-500 text-white px-10 py-3 rounded-full hover:bg-rose-600 transition"
+          className="bg-[#E11D48] text-white px-10 py-3 rounded-full hover:bg-[#BE123C] transition"
         >
           {t("home.cta")}
         </a>
@@ -161,3 +174,4 @@ export default function Home() {
     </div>
   );
 }
+

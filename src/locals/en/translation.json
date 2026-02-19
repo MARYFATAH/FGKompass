@@ -50,6 +50,9 @@
     "readMore": "Read More",
 
     "exploreTitle": "Explore by",
+    "sectionSecretTip": "(K-)ein Geheimtipp",
+    "noSecretTips": "No articles found for topic \"(K-)ein Geheimtipp\" yet.",
+    "secretTipFallback": "Discover practical insights tailored for this topic.",
 
     "cards": {
       "nutrition": {

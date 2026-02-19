@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { client } from "../sanity/client";
+import { buildImageUrl } from "../sanity/imageUrl";
 import { useTranslation } from "react-i18next";
 
 export default function HealthTopicPage({
@@ -25,7 +26,7 @@ export default function HealthTopicPage({
     slug,
     publishedAt,
     excerpt,
-    "imageUrl": image.asset->url
+    image
   }`;
 
   useEffect(() => {
@@ -40,25 +41,25 @@ export default function HealthTopicPage({
   }
 
   return (
-    <div className="relative min-h-screen w-full font-montserrat bg-gradient-to-b from-rose-50 to-white text-gray-800">
+    <div className="relative min-h-screen w-full font-montserrat bg-white text-gray-800">
       {/* 🌸 Hero */}
-      <section className="relative py-24 text-center text-white overflow-hidden">
+      <section className="relative h-[280px] md:h-[360px] text-center text-white overflow-hidden">
         <img
           src={heroImage}
           alt={`${title} Awareness`}
-          className="absolute inset-0 w-full h-full object-cover opacity-50"
+          className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-white/85" />
 
-        <div className="relative z-10 max-w-3xl mx-auto px-6">
+        <div className="relative z-10 h-full max-w-3xl mx-auto px-6 flex flex-col justify-end pb-8">
           <h1 className="text-5xl sm:text-6xl font-extrabold mb-5">{title}</h1>
-          <p className="text-lg sm:text-xl text-rose-50/90">{introText}</p>
+          <p className="text-lg sm:text-xl text-rose-50/95">{introText}</p>
         </div>
       </section>
 
       {/* 🌿 Intro */}
       <section className="max-w-4xl mx-auto px-6 py-20 text-center space-y-6">
-        <h2 className="text-3xl font-semibold text-rose-600">
+        <h2 className="text-3xl font-semibold text-[#9F1239]">
           {introTitle || t("healthTopic.introTitle")}
         </h2>
         <p className="text-gray-700 max-w-2xl mx-auto">{introText}</p>
@@ -66,7 +67,7 @@ export default function HealthTopicPage({
 
       {/* 📰 Articles */}
       <section className="max-w-6xl mx-auto px-6 py-16">
-        <h2 className="text-3xl font-semibold text-center text-rose-600 mb-12">
+        <h2 className="text-3xl font-semibold text-center text-[#9F1239] mb-12">
           {t("healthTopic.featuredArticles")}
         </h2>
 
@@ -79,17 +80,21 @@ export default function HealthTopicPage({
             {posts.map((post) => (
               <article
                 key={post._id}
-                className="bg-white rounded-2xl shadow-sm  hover:shadow-lg transition flex flex-col"
+                className="bg-white rounded-2xl border border-[#FCE7F3] shadow-sm hover:shadow-lg transition flex flex-col"
               >
-                <img
-                  src={post.imageUrl}
-                  alt={post.title}
-                  className="w-full h-56 object-cover "
-                />
+                <div className="w-full h-56 bg-[#FDE8EF] overflow-hidden">
+                  {post.image ? (
+                    <img
+                      src={buildImageUrl(post.image).width(900).height(560).fit("crop").auto("format").url()}
+                      alt={post.title}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : null}
+                </div>
 
                 <div className="p-6 flex flex-col justify-between flex-grow">
                   <div>
-                    <h3 className="text-xl font-semibold text-rose-600">
+                    <h3 className="text-xl font-semibold text-[#881337]">
                       {post.title}
                     </h3>
 
@@ -106,7 +111,7 @@ export default function HealthTopicPage({
 
                   <Link
                     to={`/${post.slug.current}`}
-                    className="self-start mt-4 bg-rose-500 text-white px-4 py-2 rounded-md text-sm hover:bg-rose-600"
+                    className="self-start mt-4 bg-[#E11D48] text-white px-4 py-2 rounded-md text-sm hover:bg-[#BE123C] transition"
                   >
                     {t("healthTopic.readMore")}
                   </Link>
@@ -119,8 +124,8 @@ export default function HealthTopicPage({
 
       {/* 💡 Tips */}
       {tips.length > 0 && (
-        <section className="max-w-4xl mx-auto px-6 py-16 bg-rose-50 shadow shadow-rose-100 rounded-2xl mb-24">
-          <h3 className="text-2xl font-semibold text-rose-600 mb-6">
+        <section className="max-w-4xl mx-auto px-6 py-16 bg-[#FFF1F6] border border-[#FCE7F3] shadow-sm rounded-2xl mb-24">
+          <h3 className="text-2xl font-semibold text-[#9F1239] mb-6">
             {t("healthTopic.helpfulTips")}
           </h3>
           <ul className="list-disc list-inside space-y-3 text-gray-700">

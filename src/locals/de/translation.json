@@ -51,6 +51,9 @@
     "readMore": "Mehr lesen",
 
     "exploreTitle": "Entdecken nach",
+    "sectionSecretTip": "(K-)ein Geheimtipp",
+    "noSecretTips": "Noch keine Artikel im Thema \"(K-)ein Geheimtipp\" vorhanden.",
+    "secretTipFallback": "Entdecke praktische Impulse zu diesem Thema.",
 
     "cards": {
       "nutrition": {
